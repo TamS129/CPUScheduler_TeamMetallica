@@ -2,25 +2,20 @@ package Algorithms;
 
 import java.util.ArrayList;
 
-public class MFQ implements SchedulerAlgorithm{
+/**
+ * Interface for a Scheduling Algorithm to adhere to.
+ */
+public interface SchedulerAlgorithm {
     /**
      * Method to run a list of processes through a scheduling algorithm
-     *
      * @param processes List of processes
      * @return An AlgoResult object, a summary of the findings
      */
-    @Override
-    public AlgoResult runAlgo(ArrayList<Process> processes) {
-        return null;
-    }
+    public AlgoResult runAlgo(ArrayList<Process> processes);
 
     /**
      * Method to return the name of the scheduling algorithm
-     *
      * @return Name of Scheduling algo
      */
-    @Override
-    public String getName() {
-        return null;
-    }
+    public String getName();
 }
