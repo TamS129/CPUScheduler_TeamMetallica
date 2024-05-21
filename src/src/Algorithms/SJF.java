@@ -1,5 +1,7 @@
 package Algorithms;
 
+import Test.AlgoResult;
+
 import java.util.ArrayList;
 
 public class SJF implements SchedulerAlgorithm{
