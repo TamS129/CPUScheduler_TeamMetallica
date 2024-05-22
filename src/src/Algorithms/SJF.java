@@ -43,8 +43,7 @@ public class SJF implements SchedulerAlgorithm {
             Queue<SProcess> tempQ = new LinkedList<>();
             while (!waitingForIO.isEmpty()) {
                 SProcess process = waitingForIO.poll();
-                if (process.getCurrIOindex() < process.getBurstTimes().length && process.getReturnTime() <= timeElapsed && process.getBurstTimes()[process.getCurrIOindex()] <= timeElapsed) {
-                    process.setCurrIOindex(process.getCurrIOindex() + 2);
+                if (process.getReturnTime() <= timeElapsed) {
                     readyQueue.add(process);
                 } else {
                     tempQ.add(process);
@@ -70,17 +69,29 @@ public class SJF implements SchedulerAlgorithm {
 
                 if(current.getCurrIOindex() + 2 >= current.getBurstTimes().length) {
                     current.setExitTime(timeElapsed);
+
+                    //maybe have a boolean "execComplete" for a SProcess?
+
                 } else {
-                    int returnTime = timeElapsed + current.getBurstTimes()[current.getCurrIOindex()];
+                    int ioBurst = current.getBurstTimes()[current.getCurrIOindex()];
+                    current.setReturnTime(timeElapsed + ioBurst);
                     current.setCurrCPUindex(current.getCurrCPUindex() + 2);
+                    current.setCurrIOindex(current.getCurrIOindex() + 2);
                     waitingForIO.add(current);
                 }
             } else {
-                int nextIOcompletion = waitingForIO.stream()
-                        .mapToInt(p -> p.getBurstTimes()[p.getCurrIOindex()])
-                        .min()
-                        .orElse(timeElapsed);
-                timeElapsed = Math.max(timeElapsed, nextIOcompletion);
+                // Problem lies here I think
+                assert waitingForIO.peek() != null;
+                int nextIOcompleted = waitingForIO.peek().getReturnTime();
+                for(SProcess process : waitingForIO) {
+                    if(process.getReturnTime() < nextIOcompleted) {
+                        nextIOcompleted = process.getReturnTime();
+                    }
+                }
+                myResult.getCPUactivity().add(new Pair(timeElapsed, nextIOcompleted));
+                myResult.getExecutionOrder().add("--IDLE--");
+
+                timeElapsed = nextIOcompleted;
             }
         }
         return myResult;
