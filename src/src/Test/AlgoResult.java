@@ -3,14 +3,23 @@ package Test;
 import java.util.ArrayList;
 
 public class AlgoResult {
-      ArrayList<Pair> CPUactivity;
+    ArrayList<Pair> CPUactivity;
     ArrayList<String> executionOrder;
 
     public AlgoResult(){
-
+        this.CPUactivity = new ArrayList<>();
+        this.executionOrder = new ArrayList<>();
     }
 
-    private class Pair {
+    public ArrayList<Pair> getCPUactivity() {
+        return CPUactivity;
+    }
+
+    public ArrayList<String> getExecutionOrder() {
+        return executionOrder;
+    }
+
+    public static class Pair {
         private int startTime;
         private int stopTime;
         public Pair(int num1, int num2){
