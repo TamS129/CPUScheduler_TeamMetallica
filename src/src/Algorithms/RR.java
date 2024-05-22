@@ -1,6 +1,7 @@
 package Algorithms;
 
 import Test.AlgoResult;
+import Test.Generator;
 import Test.SProcess;
 
 import java.util.ArrayList;
@@ -14,7 +15,15 @@ public class RR implements SchedulerAlgorithm{
      */
     @Override
     public AlgoResult runAlgo(ArrayList<SProcess> processes) {
+        Generator gen = new Generator<>();
+        SProcess list = new SProcess();
+        AlgoTimeFun calculate = new AlgoTimeFun();
+        for(SProcess pro){
+
+        }
+
         return null;
+
     }
 
     /**
@@ -26,4 +35,13 @@ public class RR implements SchedulerAlgorithm{
     public String getName() {
         return null;
     }
+}
+
+class main{
+    static public void main(String[] Args){
+        Generator test = new Generator<>();
+        test.printProcesses();
+
+    }
+
 }

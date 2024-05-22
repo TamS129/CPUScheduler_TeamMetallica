@@ -6,7 +6,7 @@ public class SProcess {
     private int[] burstTimes;
     private int currCPUindex;
     private int currIOindex;
-    private int exitTime, startTime, stopTime;
+    private int exitTime, startTime, stopTime, waitTime, turnTime, repTime;
 
 
     public SProcess() {
@@ -18,9 +18,15 @@ public class SProcess {
         this.burstTimes = burstTimes;
         currCPUindex = 0;
         currIOindex = 1;
+
         exitTime = -1;
         startTime = -1;
         stopTime = -1;
+
+        waitTime = -1;
+        repTime = -1;
+        turnTime = -1;
+
     }
 
     public int getExitTime() { return exitTime;}
@@ -36,8 +42,11 @@ public class SProcess {
     public void setStopTime(int stopTime) { this.stopTime = stopTime;}
 
     public int getCurrCPUindex(){ return currCPUindex;}
+
     public void setCurrCPUindex(int index) { this.currCPUindex = index;}
+
     public int getCurrIOindex() { return currIOindex;}
+
     public void setCurrIOindex(int index) { this.currIOindex = index;}
 
     public int[] getBurstTimes() {
@@ -55,4 +64,30 @@ public class SProcess {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public int getRepTime() {
+        return repTime;
+    }
+
+    public int getTurnTime() {
+        return turnTime;
+    }
+
+    public int getWaitTime() {
+        return waitTime;
+    }
+
+    public void setRepTime(int repTime) {
+        this.repTime = repTime;
+    }
+
+    public void setTurnTime(int turnTime) {
+        this.turnTime = turnTime;
+    }
+
+    public void setWaitTime(int waitTime) {
+        this.waitTime = waitTime;
+    }
+
+
 }
