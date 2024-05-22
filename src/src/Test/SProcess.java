@@ -1,12 +1,18 @@
 package Test;
 
-
+/**
+ * Class implementation for a Process that needs scheduling
+ *
+ * @author Team Metallica/CSB340
+ * @version 1.6
+ */
 public class SProcess {
+    /** Name of SProcess **/
     private String title;
     private int[] burstTimes;
     private int currCPUindex;
     private int currIOindex;
-    private int exitTime, startTime, stopTime, waitTime, turnTime, repTime;
+    private int exitTime, startTime, stopTime, waitTime, turnTime, repTime, returnTime;
 
 
     public SProcess() {
@@ -22,11 +28,20 @@ public class SProcess {
         exitTime = -1;
         startTime = -1;
         stopTime = -1;
+        returnTime = -1;
 
         waitTime = -1;
         repTime = -1;
         turnTime = -1;
 
+    }
+
+    public int getReturnTime() {
+        return returnTime;
+    }
+
+    public void setReturnTime(int returnTime) {
+        this.returnTime = returnTime;
     }
 
     public int getExitTime() { return exitTime;}

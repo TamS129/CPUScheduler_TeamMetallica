@@ -18,9 +18,9 @@ public class RR implements SchedulerAlgorithm{
         Generator gen = new Generator<>();
         SProcess list = new SProcess();
         AlgoTimeFun calculate = new AlgoTimeFun();
-        for(SProcess pro){
-
-        }
+//        for(SProcess pro){
+//
+//        }
 
         return null;
 
