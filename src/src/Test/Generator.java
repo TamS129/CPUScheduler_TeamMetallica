@@ -1,6 +1,7 @@
 package Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Generator<T> {
     ArrayList<SProcess> processes = new ArrayList<>();
@@ -30,12 +31,12 @@ public class Generator<T> {
 
         //Process 5
         String title5 = "P5";
-        int[] burst5 = {3, 35, 4, 41, 5, 45, 3, 51, 4, 61, 5, 54, 6, 82, 5, 77, 3};
+        int[] burst5 = {16, 24, 17, 21, 5, 36, 16, 26, 7, 31, 13, 28, 11, 21, 6, 13, 3, 11, 4};
         generateProcess(title5, burst5);
 
         //Process 6
         String title6 = "P6";
-        int[] burst6 = {3, 35, 4, 41, 5, 45, 3, 51, 4, 61, 5, 54, 6, 82, 5, 77, 3};
+        int[] burst6 = {11, 22, 4, 8, 5, 10, 6, 12, 7, 14, 9, 18, 12, 24, 15, 30, 8};
         generateProcess(title6, burst6);
 
         //Process 7
@@ -45,7 +46,7 @@ public class Generator<T> {
 
         //Process 8
         String title8 = "P8";
-        int[] burst8 = {14, 46, 17, 41, 11, 42, 15, 21, 4, 32, 7, 19, 16, 33, 10};
+        int[] burst8 = {4, 14, 5, 33, 6, 51, 14, 73, 16, 87, 6};
         generateProcess(title8, burst8);
 
 
@@ -60,4 +61,15 @@ public class Generator<T> {
         return processes;
     }
 
+    public void printProcesses(){
+        for(SProcess print: processes){
+            for(int i : print.getBurstTimes()){
+                System.out.print(i + ", ");
+
+            }
+            System.out.println("Wait Time: " + print.getWaitTime());
+            System.out.println();
+        }
+
+    }
 }
