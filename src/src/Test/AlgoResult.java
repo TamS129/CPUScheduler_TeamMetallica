@@ -3,14 +3,20 @@ package Test;
 import java.util.ArrayList;
 
 public class AlgoResult {
+
+    String algorithmName;
     ArrayList<Pair> CPUactivity;
     ArrayList<String> executionOrder;
 
-    public AlgoResult(){
+    public AlgoResult(String algorithmName){
+        this.algorithmName = algorithmName;
         this.CPUactivity = new ArrayList<>();
         this.executionOrder = new ArrayList<>();
     }
 
+    public String getAlgorithmName() {
+        return algorithmName;
+    }
     public ArrayList<Pair> getCPUactivity() {
         return CPUactivity;
     }
