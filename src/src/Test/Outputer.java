@@ -3,10 +3,10 @@ package Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Outputer {
     private AlgoResult[] results;
-
 
     public Outputer (Executer executer) {
         results = executer.getResults();
@@ -71,18 +71,55 @@ public class Outputer {
     }
 
     private Map<String, Integer> getWaitingTimes(AlgoResult result) {
-        return new HashMap<>();
+        Map<String, Integer> waitingTimes = new TreeMap<>();
+        Map<String, Integer> turnaroundTimes = getTurnaroundTimes(result);
+        ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
+        ArrayList<String> executionOrder = result.getExecutionOrder();
+
+        // Get burst time for all processes
+        for (int i = 0; i < cpuActivity.size(); i++) {
+            int burstTime = cpuActivity.get(i).getStopTime() - cpuActivity.get(i).getStartTime();
+            if (!waitingTimes.containsKey(executionOrder.get(i))) {
+                waitingTimes.put(executionOrder.get(i), burstTime);
+            } else {
+                waitingTimes.put(executionOrder.get(i), waitingTimes.get(executionOrder.get(i)) + burstTime);
+            }
+        }
+
+        // Calculate waiting time (TAT - BT)
+        for (Map.Entry<String, Integer> entry : waitingTimes.entrySet()) {
+            waitingTimes.put(entry.getKey(), turnaroundTimes.get(entry.getKey()) - entry.getValue());
+        }
+        return waitingTimes;
     }
 
     private Map<String, Integer> getTurnaroundTimes(AlgoResult result) {
-        return new HashMap<>();
+        Map<String, Integer> turnaroundTimes = new TreeMap<>();
+        ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
+        ArrayList<String> executionOrder = result.getExecutionOrder();
+        for (int i = 0; i < cpuActivity.size(); i++) {
+            turnaroundTimes.put(executionOrder.get(i), cpuActivity.get(i).getStopTime());
+        }
+        return turnaroundTimes;
     }
 
     private Map<String, Integer> getResponseTimes(AlgoResult result) {
-        return new HashMap<>();
+        Map<String, Integer> responseTimes = new TreeMap<>();
+        ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
+        ArrayList<String> executionOrder = result.getExecutionOrder();
+        for (int i = 0; i < cpuActivity.size(); i++) {
+            if (!responseTimes.containsKey(executionOrder.get(i))) {
+                responseTimes.put(executionOrder.get(i), cpuActivity.get(i).getStartTime());
+            }
+        }
+        return responseTimes;
     }
 
     private double getAverageTime(Map<String, Integer> times) {
-        return 0.0;
+        int totalTime = 0;
+        for (int time : times.values()) {
+            totalTime += time;
+        }
+        return (double) totalTime / times.size();
     }
 }
