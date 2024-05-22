@@ -15,7 +15,7 @@ import java.util.Queue;
  * @author KRB/CSB340
  * @version 1.4
  */
-public class SJF implements SchedulerAlgorithm{
+public class SJF implements SchedulerAlgorithm {
     /** AlgoResult to hold results **/
     private AlgoResult myResult;
 
