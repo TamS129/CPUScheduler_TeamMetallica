@@ -88,8 +88,8 @@ public class SJF implements SchedulerAlgorithm{
                         nextIOcompleted = process.getReturnTime();
                     }
                 }
-                myResult.getCPUactivity().add(new Pair(timeElapsed, nextIOcompleted));
-                myResult.getExecutionOrder().add("--IDLE--");
+                //myResult.getCPUactivity().add(new Pair(timeElapsed, nextIOcompleted));
+                //myResult.getExecutionOrder().add("--IDLE--");
 
                 timeElapsed = nextIOcompleted;
             }
