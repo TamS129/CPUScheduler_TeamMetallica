@@ -3,7 +3,7 @@ package Test;
 import java.util.ArrayList;
 
 public class Generator<T> {
-    ArrayList<Process> processes = new ArrayList<>();
+    ArrayList<SProcess> SProcesses = new ArrayList<>();
 
     public Generator(){
         //Insert HashMap to hold all Array values.
@@ -52,13 +52,13 @@ public class Generator<T> {
     }
 
     public void generateProcess(String title, int[] arr){
-        Process newProcess = new Process(title, arr);
-        processes.add(newProcess);
+        SProcess newSProcess = new SProcess(title, arr);
+        SProcesses.add(newSProcess);
     }
 
-    public ArrayList<Process> getProcesses() {
+    public ArrayList<SProcess> getProcesses() {
 
-        return processes;
+        return SProcesses;
     }
 
 }
