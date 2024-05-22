@@ -12,6 +12,9 @@ public class Outputer {
         results = executer.getResults();
     }
 
+    /**
+     * Formats and prints the results of the given scheduling algorithm
+     */
     public void printResults() {
         for (AlgoResult result: results) {
             if (result != null) {
@@ -46,6 +49,9 @@ public class Outputer {
 
     }
 
+    /**
+     * Creates a divider for style
+     */
     private void printDivider() {
         System.out.println();
         for (int i = 0; i < 20; i++) {
@@ -55,6 +61,11 @@ public class Outputer {
         System.out.println();
     }
 
+    /**
+     * Returns the total time to complete all processes
+     * @param result results of the algorithm
+     * @return total execution time
+     */
     private int getTotalTime(AlgoResult result) {
         ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
         if (result.getCPUactivity().isEmpty()) {
@@ -63,6 +74,11 @@ public class Outputer {
         return cpuActivity.get(cpuActivity.size() - 1).getStopTime();
     }
 
+    /**
+     * Calculates and returns the cpu utilization of the algorithm
+     * @param result results of the algorithms
+     * @return cpu utilization
+     */
     private double getCPUUtilization(AlgoResult result) {
         int totalCPUTime = 0;
         for (AlgoResult.Pair pair : result.getCPUactivity())
@@ -70,6 +86,11 @@ public class Outputer {
         return ((double) totalCPUTime / getTotalTime(result)) * 100;
     }
 
+    /**
+     * Calculates and returns the waiting times of each process
+     * @param result results of the algorithm
+     * @return waiting times for each process
+     */
     private Map<String, Integer> getWaitingTimes(AlgoResult result) {
         Map<String, Integer> waitingTimes = new TreeMap<>();
         Map<String, Integer> turnaroundTimes = getTurnaroundTimes(result);
@@ -93,6 +114,11 @@ public class Outputer {
         return waitingTimes;
     }
 
+    /**
+     * Calculates and returns the turnaround times of each process
+     * @param result results of the algorithm
+     * @return turnaround times for each process
+     */
     private Map<String, Integer> getTurnaroundTimes(AlgoResult result) {
         Map<String, Integer> turnaroundTimes = new TreeMap<>();
         ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
@@ -103,6 +129,11 @@ public class Outputer {
         return turnaroundTimes;
     }
 
+    /**
+     * Calculates and returns the response times of each process
+     * @param result results of the algorithm
+     * @return response times for each process
+     */
     private Map<String, Integer> getResponseTimes(AlgoResult result) {
         Map<String, Integer> responseTimes = new TreeMap<>();
         ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
@@ -115,6 +146,11 @@ public class Outputer {
         return responseTimes;
     }
 
+    /**
+     * Calculates and returns averages of given times recorded in a map
+     * @param times times for each process
+     * @return the average of all times
+     */
     private double getAverageTime(Map<String, Integer> times) {
         int totalTime = 0;
         for (int time : times.values()) {
