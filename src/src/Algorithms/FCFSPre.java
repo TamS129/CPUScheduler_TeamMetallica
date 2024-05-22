@@ -1,6 +1,7 @@
 package Algorithms;
 
 import Test.AlgoResult;
+import Test.SProcess;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class FCFSPre implements SchedulerAlgorithm{
      * @return An AlgoResult object, a summary of the findings
      */
     @Override
-    public AlgoResult runAlgo(ArrayList<Process> processes) {
+    public AlgoResult runAlgo(ArrayList<SProcess> processes) {
         return null;
     }
 

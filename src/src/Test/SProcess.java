@@ -1,15 +1,18 @@
 package Test;
 
-import java.util.ArrayList;
 
-public class Process {
+public class SProcess {
     private String title;
     private int[] burstTimes;
 
 
-    Process(String title, int[] burstTimes ){
-        title = this.title;
-        burstTimes = this.burstTimes;
+    public SProcess() {
+        this.title = null;
+        this.burstTimes = null;
+    }
+    public SProcess(String title, int[] burstTimes ){
+        this.title = title;
+        this.burstTimes = burstTimes;
 
     }
 

@@ -1,6 +1,7 @@
 package Algorithms;
 
 import Test.AlgoResult;
+import Test.SProcess;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public interface SchedulerAlgorithm {
      * @param processes List of processes
      * @return An AlgoResult object, a summary of the findings
      */
-    public AlgoResult runAlgo(ArrayList<Process> processes);
+    public AlgoResult runAlgo(ArrayList<SProcess> processes);
 
     /**
      * Method to return the name of the scheduling algorithm

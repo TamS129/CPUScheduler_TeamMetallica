@@ -7,17 +7,22 @@ public class AlgoResult {
     ArrayList<Integer> waitTimes;
     ArrayList<Integer> turnTimes;
 
+    public AlgoResult(){
+        responseTimes = new ArrayList<>();
+        waitTimes = new ArrayList<>();
+        turnTimes = new ArrayList<>();
+    }
+
     /**
      * Constructor to hold all result arraylists for our algorithms.
      * @param responseTimes - Arraylist of response times.
      * @param waitTimes - Arraylist of waiting times.
      * @param turnTimes - Arraylist of turnaround times.
      */
-
-    AlgoResult(ArrayList<Integer> responseTimes, ArrayList<Integer> waitTimes, ArrayList<Integer> turnTimes ){
-            responseTimes = this.responseTimes;
-            waitTimes = this.waitTimes;
-            turnTimes = this.turnTimes;
+    public AlgoResult(ArrayList<Integer> responseTimes, ArrayList<Integer> waitTimes, ArrayList<Integer> turnTimes ){
+            this.responseTimes = responseTimes;
+            this.waitTimes = waitTimes;
+            this.turnTimes = turnTimes;
     }
 
     /**
