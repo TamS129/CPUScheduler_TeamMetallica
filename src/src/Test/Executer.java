@@ -44,5 +44,7 @@ public class Executer {
             Pair myPair = result.getCPUactivity().get(i);
             System.out.println("Start time: " + myPair.getStartTime() + "\nStop time: " + myPair.getStopTime());
         }
+        Outputer outputer = new Outputer(myExec);
+        outputer.printResults();
     }
 }
