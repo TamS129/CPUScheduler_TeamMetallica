@@ -6,6 +6,8 @@ public class AlgoResult {
     ArrayList<Integer> responseTimes;
     ArrayList<Integer> waitTimes;
     ArrayList<Integer> turnTimes;
+    ArrayList<Pair> CPUactivity;
+    ArrayList<String> executionOrder;
 
     public AlgoResult(){
         responseTimes = new ArrayList<>();
@@ -76,5 +78,19 @@ public class AlgoResult {
      */
     public void setWaitTimes(ArrayList<Integer> waitTimes) {
         this.waitTimes = waitTimes;
+    }
+
+    private class Pair {
+        private int startTime;
+        private int stopTime;
+        public Pair(int num1, int num2){
+            this.startTime = num1;
+            this.stopTime = num2;
+        }
+
+        public void setStartTime(int time) { this.startTime = time;}
+        public int getStartTime() { return startTime;}
+        public void setStopTime(int time) { this.stopTime = time;}
+        public int getStopTime() { return stopTime;}
     }
 }
