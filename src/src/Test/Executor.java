@@ -2,10 +2,8 @@ package Test;
 
 import Algorithms.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 /**
  * Class implementation for Executor which runs all algorithms against a List of SProcesses
@@ -14,9 +12,14 @@ import java.util.List;
  * @version 1.1
  */
 public class Executor {
+    /** All the different Scheduling Algorithms available **/
     SchedulerAlgorithm[] algorithms;
+    /** Array of AlgoResult from each Scheduling Algorithm **/
     AlgoResult[] results;
 
+    /**
+     * Constructor for an Executor Class
+     */
     public Executor() {
         this.algorithms = new SchedulerAlgorithm[7];
         algorithms[0] = new SJF();
@@ -29,6 +32,10 @@ public class Executor {
         this.results = new AlgoResult[7];
     }
 
+    /**
+     * Method to execute a list of SProcesses against a Scheduling Algorithm
+     * @param SProcesses List of SProcesses to schedule
+     */
     public void execute(ArrayList<SProcess> SProcesses) {
         for(int i = 0; i < algorithms.length; i++) {
            results[i] = algorithms[i].runAlgo(SProcesses);
@@ -36,28 +43,28 @@ public class Executor {
         }
     }
 
+    /**
+     * Method to reset the values of each SProcess in the list for the next Algo
+     * @param SProcesses List of SProcesses
+     */
     public void resetValues(ArrayList<SProcess> SProcesses){
-        for(int i = 0; i < SProcesses.size(); i++ ){
-           SProcess temp =  SProcesses.get(i);
-           temp.setStartTime(-1);
-           temp.setReturnTime(-1);
-           temp.setExitTime(-1);
-           temp.setStopTime(-1);
-           temp.setCurrCPUindex(0);
-           temp.setCurrIOindex(1);
-           temp.setWaitTime(-1);
-           temp.setRepTime(-1);
-           temp.setTurnTime(-1);
-
+        for (SProcess temp : SProcesses) {
+            temp.setStartTime(-1);
+            temp.setReturnTime(-1);
+            temp.setExitTime(-1);
+            temp.setStopTime(-1);
+            temp.setCurrCPUindex(0);
+            temp.setCurrIOindex(1);
+            temp.setWaitTime(-1);
+            temp.setRepTime(-1);
+            temp.setTurnTime(-1);
         }
-
-
     }
 
-    public void setResults(AlgoResult[] results) {
-        this.results = results;
-    }
-
+    /**
+     * Method to return the Array of AlgoResults after running all algorithms through the list of SProcesses
+     * @return AlgoResult Array
+     */
     public AlgoResult[] getResults() {
         return results;
     }
