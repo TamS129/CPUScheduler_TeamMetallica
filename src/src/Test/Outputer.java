@@ -8,7 +8,7 @@ import java.util.TreeMap;
 public class Outputer {
     private AlgoResult[] results;
 
-    public Outputer (Executer executer) {
+    public Outputer (Executor executer) {
         results = executer.getResults();
     }
 
