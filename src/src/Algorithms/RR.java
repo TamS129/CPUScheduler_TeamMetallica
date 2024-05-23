@@ -34,6 +34,21 @@ public class RR implements SchedulerAlgorithm{
 
         while (!ready.isEmpty() || !ioWait.isEmpty()) {
 
+            Queue<SProcess> remainingIoWait = new LinkedList<>();
+            while (!ioWait.isEmpty()) {
+                SProcess ioProcess = ioWait.poll();
+                int[] bursts = ioProcess.getBurstTimes();
+                int ioBurst = bursts[ioProcess.getCurrIOindex()];
+
+                if (currentTime >= ioProcess.getReturnTime()) {
+
+                    ready.add(ioProcess);
+
+                } else {
+                    remainingIoWait.add(ioProcess);
+                }
+            }
+
             if (!ready.isEmpty()) {
 
                 SProcess currentProcess = ready.poll();
@@ -42,18 +57,19 @@ public class RR implements SchedulerAlgorithm{
                 currentProcess.setStartTime(currentTime);
 
                 if (cpuBurst <= tq) {
+                    // Update return time based on sum of CPU and I/O burst
+                    currentProcess.setReturnTime(currentTime + cpuBurst + bursts[currentProcess.getCurrIOindex()]);
                     currentTime += cpuBurst;
                     currentProcess.setCurrCPUindex(currentProcess.getCurrCPUindex() + 2);
 
                     currentProcess.setStopTime(currentTime);
 
-                    if (currentProcess.getCurrCPUindex() < bursts.length) {
+                    result.getCPUactivity().add(new Pair(currentProcess.getStartTime(), currentProcess.getStopTime()));
+                    result.getExecutionOrder().add(currentProcess.getTitle());
 
+                    if (currentProcess.getCurrCPUindex() < bursts.length - 1) {
                         ioWait.add(currentProcess);
-
-                    }
-                    else {
-
+                    } else {
                         currentProcess.setExitTime(currentTime);
                     }
 
@@ -62,57 +78,27 @@ public class RR implements SchedulerAlgorithm{
                     currentTime += tq;
                     bursts[currentProcess.getCurrCPUindex()] -= tq;
                     ready.add(currentProcess);
-                    result.getCPUactivity().add(new Pair(currentProcess.getStartTime(), currentProcess.getStopTime()));
-                    result.getExecutionOrder().add(currentProcess.getTitle());
+
                 }
+
+            }
+            else{
+                int fastForward = ioWait.peek().getReturnTime();
+                for(SProcess process : ioWait){
+                    if(process.getReturnTime() < fastForward){
+                        fastForward = process.getReturnTime();
+
+                    }
+                }
+                currentTime = fastForward;
             }
 
-
-            Queue<SProcess> remainingIoWait = new LinkedList<>();
-            while (!ioWait.isEmpty()) {
-
-                SProcess ioProcess = ioWait.poll();
-                int[] bursts = ioProcess.getBurstTimes();
-                int ioBurst = bursts[ioProcess.getCurrIOindex()];
-
-                if (currentTime >= ioBurst) {
-
-                    ioProcess.setCurrIOindex(ioProcess.getCurrIOindex() + 2);
-                    ready.add(ioProcess);
-
-                }
-                else {
-
-                    remainingIoWait.add(ioProcess);
-                }
-            }
             ioWait = remainingIoWait;
         }
 
-
-
-        // Create AlgoResult object to return
         return result;
     }
 
-    private List<Pair> setCPUActivities(ArrayList<SProcess> processes) {
-        List<Pair> cpuActivities = new ArrayList<>();
-        for (SProcess process : processes) {
-            cpuActivities.add(new Pair(process.getStartTime(), process.getExitTime()));
-        }
-        return cpuActivities;
-    }
-
-    private int getCPUBurstSum(int[] burstTimes) {
-        int sum = 0;
-
-        for (int i = 0; i < burstTimes.length; i += 2) {
-
-            sum += burstTimes[i];
-
-        }
-        return sum;
-    }
 
     public AlgoResult getResults(){
         System.out.println("Round Robin: ");
