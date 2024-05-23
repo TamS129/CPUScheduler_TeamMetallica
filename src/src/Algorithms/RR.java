@@ -2,7 +2,7 @@ package Algorithms;
 
 import Test.AlgoResult;
 import Test.AlgoResult.Pair;
-import Test.Executer;
+import Test.Executor;
 import Test.Generator;
 import Test.SProcess;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class RR implements SchedulerAlgorithm{
-    AlgoResult result = new AlgoResult();
+    AlgoResult result = new AlgoResult(getName());
 
     /**
      * Method to run a list of processes through a scheduling algorithm
@@ -140,7 +140,7 @@ public class RR implements SchedulerAlgorithm{
         return null;
     }
     public static void main(String[] args) {
-        Executer exe = new Executer();
+        Executor exe = new Executor();
         Generator gen = new Generator<>();
         ArrayList<SProcess> test = gen.getProcesses();
         exe.execute(test);
