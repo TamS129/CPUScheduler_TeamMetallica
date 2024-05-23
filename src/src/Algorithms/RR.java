@@ -14,6 +14,10 @@ import java.util.Queue;
 public class RR implements SchedulerAlgorithm{
     AlgoResult result = new AlgoResult(getName());
 
+    public RR(){
+        this.result = new AlgoResult(getName());
+    }
+
     /**
      * Method to run a list of processes through a scheduling algorithm
      *
@@ -27,7 +31,6 @@ public class RR implements SchedulerAlgorithm{
 
         int tq = 5;
         int currentTime = 0;
-        AlgoTimeFun timeFun = new AlgoTimeFun();
 
         while (!ready.isEmpty() || !ioWait.isEmpty()) {
 
@@ -36,14 +39,18 @@ public class RR implements SchedulerAlgorithm{
                 SProcess currentProcess = ready.poll();
                 int[] bursts = currentProcess.getBurstTimes();
                 int cpuBurst = bursts[currentProcess.getCurrCPUindex()];
+                currentProcess.setStartTime(currentTime);
 
                 if (cpuBurst <= tq) {
                     currentTime += cpuBurst;
                     currentProcess.setCurrCPUindex(currentProcess.getCurrCPUindex() + 2);
 
+                    currentProcess.setStopTime(currentTime);
 
                     if (currentProcess.getCurrCPUindex() < bursts.length) {
+
                         ioWait.add(currentProcess);
+
                     }
                     else {
 
@@ -55,6 +62,8 @@ public class RR implements SchedulerAlgorithm{
                     currentTime += tq;
                     bursts[currentProcess.getCurrCPUindex()] -= tq;
                     ready.add(currentProcess);
+                    result.getCPUactivity().add(new Pair(currentProcess.getStartTime(), currentProcess.getStopTime()));
+                    result.getExecutionOrder().add(currentProcess.getTitle());
                 }
             }
 
@@ -80,33 +89,13 @@ public class RR implements SchedulerAlgorithm{
             ioWait = remainingIoWait;
         }
 
-        // Calculate times for all processes
-        ArrayList<Integer> waitTimes = new ArrayList<>();
-        ArrayList<Integer> turnTimes = new ArrayList<>();
-        ArrayList<Integer> responseTimes = new ArrayList<>();
 
-        for (SProcess process : processes) {
-
-            int waitTime = timeFun.waitingTime(process.getExitTime(), process.getStartTime(), getCPUBurstSum(process.getBurstTimes()));
-            int turnTime = timeFun.turnTime(process.getExitTime(), process.getStartTime());
-            int responseTime = timeFun.responseTime(process.getStartTime(), process.getStartTime());
-
-            waitTimes.add(waitTime);
-            turnTimes.add(turnTime);
-            responseTimes.add(responseTime);
-
-            process.setWaitTime(waitTime);
-            process.setTurnTime(turnTime);
-            process.setRepTime(responseTime);
-        }
 
         // Create AlgoResult object to return
-
-
         return result;
     }
 
-    private List<Pair> getCPUActivities(ArrayList<SProcess> processes) {
+    private List<Pair> setCPUActivities(ArrayList<SProcess> processes) {
         List<Pair> cpuActivities = new ArrayList<>();
         for (SProcess process : processes) {
             cpuActivities.add(new Pair(process.getStartTime(), process.getExitTime()));
@@ -137,7 +126,7 @@ public class RR implements SchedulerAlgorithm{
      */
     @Override
     public String getName() {
-        return null;
+        return "Round Robin (FCFS)";
     }
     public static void main(String[] args) {
         Executor exe = new Executor();
@@ -150,17 +139,14 @@ public class RR implements SchedulerAlgorithm{
                 System.out.println(print.getTitle());
 
                 System.out.println("Start Time: ");
+                System.out.println(print.getStartTime());
+
+                System.out.println("Exit Time: ");
                 System.out.println(print.getExitTime());
 
-                System.out.println("Wait Time: ");
-                System.out.println(print.getWaitTime());
+                System.out.println("Response Time");
+                System.out.println(print.getReturnTime());
 
-                System.out.println("Response time: ");
-                System.out.println(print.getRepTime());
-
-                System.out.println("Turnaround time: ");
-                System.out.println(print.getTurnTime());
-                System.out.println();
             }
 
         }
