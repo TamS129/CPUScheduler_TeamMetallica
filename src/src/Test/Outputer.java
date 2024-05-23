@@ -1,14 +1,13 @@
 package Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Outputer {
     private AlgoResult[] results;
 
-    public Outputer (Executer executer) {
+    public Outputer (Executor executer) {
         results = executer.getResults();
     }
 
