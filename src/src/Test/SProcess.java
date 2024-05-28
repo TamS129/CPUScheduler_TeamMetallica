@@ -13,15 +13,17 @@ public class SProcess {
     private int currCPUindex;
     private int currIOindex;
     private int exitTime, startTime, stopTime, waitTime, turnTime, repTime, returnTime;
+    private int priorityLevel;
 
 
     public SProcess() {
         this.title = null;
         this.burstTimes = null;
     }
-    public SProcess(String title, int[] burstTimes ){
+    public SProcess(String title, int[] burstTimes, int priorityLevel ){
         this.title = title;
         this.burstTimes = burstTimes;
+        this.priorityLevel = priorityLevel;
         currCPUindex = 0;
         currIOindex = 1;
 
@@ -35,6 +37,10 @@ public class SProcess {
         turnTime = -1;
 
     }
+
+    public int getPriorityLevel() { return priorityLevel;}
+
+    public void setPriorityLevel(int newPriorityLevel) { this.priorityLevel = newPriorityLevel;}
 
     public int getReturnTime() {
         return returnTime;
