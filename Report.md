@@ -49,8 +49,14 @@
 
 ## <div align = "center"> Final Results </div>
 ## <div align = "center" > Average Result Times </div>
+|                     | FCFS (Non-Pre) | FCFS (Pre) | SJF(Non-Pre)  | SRTF | Priority | RR(FCFS) | MLQ | MLFQ |
+|:--------------------|:--------------:|:----------:|:-------------:|:----:|:--------:|:--------:|:---:|:----:|
+| CPU utilization     |                |    N/A     |               |      |          |          |     |      |
+| Avg Waiting time    |                |    N/A     |               |      |          |          |     |      |
+| Avg Turnaround Time |                |    N/A     |               |      |          |          |     |      |
+| Avg Response Time   |                |    N/A     |               |      |          |          |     |      |
 ### <div align = "center"> CPU Utilization </div>
-<!--- Insert Table--->
+<!--- Insert Chart --->
 <!--- Insert Dicussion of CPU Utilization--->
 
 ### <div align = "center"> Waiting Times </div>
@@ -69,6 +75,7 @@
 
 
 ## <div align = "center" > Algorithm Result Times </div>
-<!--- Insert Subtables for all 7 Algorithms--->
+<!--- May have to do an image instead for the Subtables--->
+
 
 ## <div align = "center" > Conclusion </div>
