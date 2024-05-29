@@ -18,7 +18,7 @@
   * [Waiting Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-waiting-times-)
   * [Turnaround Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-turnaround-times-)
   * [Response Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-response-times-)
-* [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times)
+* [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times-)
 ### [Conculsion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-conclusion-)
 
 
