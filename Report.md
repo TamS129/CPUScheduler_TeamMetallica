@@ -1,5 +1,5 @@
 # <div align = "center"> CPU Scheduler Algorithm Experiment </div>
-## <div align = "center"> Written by: Jackson Kettel, Kelvin Kelvin Rajbhandari, Ken Cage, Tamara Slone </div>
+## <div align = "center"> Written by: Jackson Kettel, Kelvin Rajbhandari, Ken Cage, Tamara Slone </div>
 
 ## Table of Contents
 ### [Introduction](vhttps://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-introduction-)
