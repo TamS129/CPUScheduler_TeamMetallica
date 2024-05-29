@@ -2,7 +2,7 @@
 ## <div align = "center"> Written by: Jackson Kettel, Kelvin Rajbhandari, Ken Cage, Tamara Slone </div>
 
 ## Table of Contents
-### [Introduction](vhttps://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-introduction-)
+### [Introduction](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-introduction-)
 * [First Come, First Serve Non-Preemptive](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-first-come-first-serve-fcfs-non-preemptive-)
 * [First Come, First Serve Preemptive](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-first-come-first-serve-fcfs-preemptive-)
 * [Shortest Job First](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-shortest-job-first-sjf-)
