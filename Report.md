@@ -18,16 +18,16 @@
   * [Waiting Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-waiting-times-)
   * [Turnaround Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-turnaround-times-)
   * [Response Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-response-times-)
-* [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times-)
-
+* [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times)
 ### [Conculsion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-conclusion-)
+
+
 ## <div align = "center" > Introduction </div>
 <!--- Intro paragraph -->
 ### <div align = "center" > First Come, First Serve (FCFS) Non-Preemptive </div>
-<!--- Paragraph about FCFS Non-preemptive Algorithm --->s
+<!--- Paragraph about FCFS Non-preemptive Algorithm --->
 
 ### <div align = "center" > First Come, First Serve (FCFS) Preemptive </div>
-
 ### <div align = "center"> Shortest Job First (SJF) </div>
 <!--- Paragraph about SJF Non-preemptive Algorithm --->
 
