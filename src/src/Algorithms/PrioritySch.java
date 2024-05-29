@@ -51,14 +51,12 @@ public class PrioritySch implements SchedulerAlgorithm {
             waitingForIO = tempQ;
 
             if (!readyQueue.isEmpty()) {
-                readyQueue.sort(Comparator
-                        .comparingInt(SProcess::getPriorityLevel)
-                        .thenComparingInt(p -> p.getBurstTimes()[p.getCurrCPUindex()]));
+                readyQueue.sort(Comparator.comparingInt(SProcess::getPriorityLevel));
 
                 SProcess current = readyQueue.get(0);
                 int currCPUburst = current.getBurstTimes()[current.getCurrCPUindex()];
-
                 boolean preempted = false;
+
                 while (currCPUburst > 0) {
                     timeElapsed++;
                     currCPUburst--;
@@ -76,9 +74,7 @@ public class PrioritySch implements SchedulerAlgorithm {
                     waitingForIO = tempQ;
 
                     // Re-sort readyQueue based on priority
-                    readyQueue.sort(Comparator
-                            .comparingInt(SProcess::getPriorityLevel)
-                            .thenComparingInt(p -> p.getBurstTimes()[p.getCurrCPUindex()]));
+                    readyQueue.sort(Comparator.comparingInt(SProcess::getPriorityLevel));
 
                     // Check for preemption
                     if (!readyQueue.isEmpty() && readyQueue.get(0) != current) {

@@ -10,10 +10,8 @@ public class SProcess {
     /** Name of SProcess **/
     private String title;
     private int[] burstTimes;
-    private int currCPUindex;
-    private int currIOindex;
-    private int exitTime, startTime, stopTime, waitTime, turnTime, repTime, returnTime;
-    private int priorityLevel;
+    private int currCPUindex, currIOindex, exitTime, startTime, stopTime, waitTime, turnTime, repTime, returnTime, priorityLevel;
+
 
 
     public SProcess() {
