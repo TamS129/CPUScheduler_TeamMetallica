@@ -111,7 +111,8 @@ public class SJF implements SchedulerAlgorithm{
      * Method to result AlgoResult object that has final order of execution
      * @return AlgoResult object
      */
-    public AlgoResult getMyResult() {
+    @Override
+    public AlgoResult getResults() {
         return myResult;
     }
 }

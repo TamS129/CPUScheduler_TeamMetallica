@@ -5,6 +5,7 @@ import Test.SProcess;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;public class MQ implements SchedulerAlgorithm {
+    AlgoResult result = new AlgoResult(ALGO_NAME);
     private static final String ALGO_NAME = "Multilevel Queue Scheduling";  /**
      * Method to run a list of processes through a scheduling algorithm
      *
@@ -13,7 +14,7 @@ import java.util.Queue;public class MQ implements SchedulerAlgorithm {
      */
     @Override
     public AlgoResult runAlgo(ArrayList<SProcess> processes) {
-        AlgoResult result = new AlgoResult(ALGO_NAME);    // Assuming there are 3 levels of queues
+
         Queue<SProcess> highPriorityQueue = new LinkedList<>();
         Queue<SProcess> mediumPriorityQueue = new LinkedList<>();
         Queue<SProcess> lowPriorityQueue = new LinkedList<>();    // Simulated priority assignment based on title for simplicity (adjust as needed)
@@ -60,5 +61,10 @@ import java.util.Queue;public class MQ implements SchedulerAlgorithm {
     @Override
     public String getName() {
         return ALGO_NAME;
+    }
+
+    @Override
+    public AlgoResult getResults(){
+        return result;
     }
 }

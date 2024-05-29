@@ -79,4 +79,9 @@ public class FCFSNonPre implements SchedulerAlgorithm {
     public String getName() {
         return "First Come, First Serve Non-Preemptive";
     }
+
+    public AlgoResult getResults(){
+        return result;
+    }
 }
+

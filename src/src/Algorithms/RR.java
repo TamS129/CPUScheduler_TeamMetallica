@@ -101,8 +101,8 @@ public class RR implements SchedulerAlgorithm{
     }
 
 
+    @Override
     public AlgoResult getResults(){
-        System.out.println("Round Robin: ");
         return result;
     }
 

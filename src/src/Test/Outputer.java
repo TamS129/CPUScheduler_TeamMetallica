@@ -10,6 +10,9 @@ public class Outputer {
     public Outputer (Executor executer) {
         results = executer.getResults();
     }
+    public Outputer() {
+        //Constructor for Testing purposes only.
+    }
 
     /**
      * Formats and prints the results of the given scheduling algorithm
@@ -78,7 +81,7 @@ public class Outputer {
      * @param result results of the algorithms
      * @return cpu utilization
      */
-    private double getCPUUtilization(AlgoResult result) {
+    public double getCPUUtilization(AlgoResult result) {
         int totalCPUTime = 0;
         for (AlgoResult.Pair pair : result.getCPUactivity())
             totalCPUTime += pair.getStopTime() - pair.getStartTime();
@@ -90,7 +93,7 @@ public class Outputer {
      * @param result results of the algorithm
      * @return waiting times for each process
      */
-    private Map<String, Integer> getWaitingTimes(AlgoResult result) {
+    public Map<String, Integer> getWaitingTimes(AlgoResult result) {
         Map<String, Integer> waitingTimes = new TreeMap<>();
         Map<String, Integer> turnaroundTimes = getTurnaroundTimes(result);
         ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
@@ -118,7 +121,7 @@ public class Outputer {
      * @param result results of the algorithm
      * @return turnaround times for each process
      */
-    private Map<String, Integer> getTurnaroundTimes(AlgoResult result) {
+    public Map<String, Integer> getTurnaroundTimes(AlgoResult result) {
         Map<String, Integer> turnaroundTimes = new TreeMap<>();
         ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
         ArrayList<String> executionOrder = result.getExecutionOrder();
@@ -133,7 +136,7 @@ public class Outputer {
      * @param result results of the algorithm
      * @return response times for each process
      */
-    private Map<String, Integer> getResponseTimes(AlgoResult result) {
+    public Map<String, Integer> getResponseTimes(AlgoResult result) {
         Map<String, Integer> responseTimes = new TreeMap<>();
         ArrayList<AlgoResult.Pair> cpuActivity = result.getCPUactivity();
         ArrayList<String> executionOrder = result.getExecutionOrder();
@@ -150,7 +153,7 @@ public class Outputer {
      * @param times times for each process
      * @return the average of all times
      */
-    private double getAverageTime(Map<String, Integer> times) {
+    public double getAverageTime(Map<String, Integer> times) {
         int totalTime = 0;
         for (int time : times.values()) {
             totalTime += time;
