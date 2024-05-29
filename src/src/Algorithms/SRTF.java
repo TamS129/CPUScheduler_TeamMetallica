@@ -6,6 +6,8 @@ import Test.SProcess;
 import java.util.ArrayList;
 
 public class SRTF implements SchedulerAlgorithm{
+
+    AlgoResult result;
     /**
      * Method to run a list of processes through a scheduling algorithm
      *
@@ -25,5 +27,10 @@ public class SRTF implements SchedulerAlgorithm{
     @Override
     public String getName() {
         return null;
+    }
+
+    @Override
+    public AlgoResult getResults(){
+        return result;
     }
 }

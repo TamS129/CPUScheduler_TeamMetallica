@@ -6,6 +6,11 @@ import java.util.Arrays;
 public class Generator<T> {
     ArrayList<SProcess> processes = new ArrayList<>();
 
+    public Generator(int testNum){
+        testNum = 0;
+        //Generator just for Testing purposes.
+    }
+
     public Generator(){
         //Insert HashMap to hold all Array values.
 

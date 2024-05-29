@@ -21,4 +21,10 @@ public interface SchedulerAlgorithm {
      * @return Name of Scheduling algo
      */
     public String getName();
+
+    /**
+     * Method to return the results obj from our Algorithms.
+     * @return result object containing AlgoResults.
+     */
+    public AlgoResult getResults();
 }
