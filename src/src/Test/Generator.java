@@ -66,15 +66,4 @@ public class Generator<T> {
         return processes;
     }
 
-    public void printProcesses(){
-        for(SProcess print: processes){
-            for(int i : print.getBurstTimes()){
-                System.out.print(i + ", ");
-
-            }
-            System.out.println("Wait Time: " + print.getWaitTime());
-            System.out.println();
-        }
-
-    }
 }

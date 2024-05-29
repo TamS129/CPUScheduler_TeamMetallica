@@ -115,29 +115,7 @@ public class RR implements SchedulerAlgorithm{
     public String getName() {
         return "Round Robin (FCFS)";
     }
-    public static void main(String[] args) {
-        Executor exe = new Executor();
-        Generator gen = new Generator<>();
-        ArrayList<SProcess> test = gen.getProcesses();
-        exe.execute(test);
 
-        for(SProcess print: test){
-            for(int i = 0; i < test.size(); i++){
-                System.out.println(print.getTitle());
-
-                System.out.println("Start Time: ");
-                System.out.println(print.getStartTime());
-
-                System.out.println("Exit Time: ");
-                System.out.println(print.getExitTime());
-
-                System.out.println("Response Time");
-                System.out.println(print.getReturnTime());
-
-            }
-
-        }
-    }
 }
 
 

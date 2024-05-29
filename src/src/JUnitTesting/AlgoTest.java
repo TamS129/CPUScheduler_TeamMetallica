@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class AlgoTest{
     ArrayList testProcessList;
-    Map<String,Integer> reponseTimes;
+    Map<String,Integer> responseTimes;
     Map<String,Integer> ttTimes;
     Map<String, Integer> waitTimes;
 
@@ -47,7 +47,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
 
@@ -68,7 +68,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
 
@@ -88,7 +88,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
 
@@ -107,7 +107,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
     }
@@ -119,7 +119,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
     }
@@ -131,7 +131,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
 
@@ -145,7 +145,7 @@ public class AlgoTest{
 
         test.runAlgo(testProcessList);
         AlgoResult testResults = test.getResults();
-        reponseTimes = testOut.getResponseTimes(testResults);
+        responseTimes = testOut.getResponseTimes(testResults);
         waitTimes = testOut.getWaitingTimes(testResults);
         ttTimes = testOut.getTurnaroundTimes(testResults);
 
