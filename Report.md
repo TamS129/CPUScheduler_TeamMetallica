@@ -63,7 +63,7 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 
 ## <div align = "center"> Project Design (UML) </div>
 
-![UMLCPU](Images/UMLDesignCPU.png);
+![UMLCPU](src/src/Images/UMLDesignCPU.png);
 
 ## <div align = "center"> Final Results </div>
 ## <div align = "center" > Average Result Times </div>
