@@ -23,7 +23,10 @@
 
 
 ## <div align = "center" > Introduction </div>
-<!--- Intro paragraph -->
+&nbsp; &nbsp; &nbsp; &nbsp; CPU scheduling algorithms are essential for optimizing the performance and efficiency of operating systems. These algorithms determine the order in which processes access the CPU, balancing system responsiveness and resource utilization. This report explores several key scheduling algorithms that we have implemented into a Java Project that implements several CPU algorithms that calculate our running times and overall CPU utilization. These algorithms include First-Come, First-Served (FCFS) in both non-preemptive and preemptive forms, Shortest Job First (SJF), Priority Scheduling, Round Robin (RR) with FCFS, Multilevel Queue (MQ), and Multilevel Feedback Queue (MFQ).
+
+&nbsp; &nbsp; &nbsp; &nbsp; This analysis includes the design and overall results of each algorithm (Excluding FCFS Preemptive) and comparing how each algorithm compares in efficiency and runtimes. By examining these algorithms, we gain insights into achieving optimal process management and improving overall system performance. However, before we can start with the results of our algorithms, we must first understand how each algorithm differs and functions.
+
 ### <div align = "center" > First Come, First Serve (FCFS) Non-Preemptive </div>
 <!--- Paragraph about FCFS Non-preemptive Algorithm --->
 
@@ -95,38 +98,40 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 ## <div align = "center" > Algorithm Result Times </div>
 | FCFS (Non-Pre)  CPU Utilization: |               |                  |                |    |    | SJF CPU Utilization: |                  |                |    |    | Priority Schdueling CPU Utilization: |                  |                |                |    |
 |:---------------------------------|:-------------:|:----------------:|:--------------:|:--:|:--:|:--------------------:|:----------------:|:--------------:|:--:|:---|--------------------------------------|:----------------:|:--------------:|:--------------:|:--:|
-| P1                               | Waiting Times | Turnaround Times | Response Times |    |    |    Waiting Times     | Turnaround Times | Response Times |    |    | Wait Time                            | TurnAround Times | Response Times |                |    |
+|                                  | Waiting Times | Turnaround Times | Response Times |    |    |    Waiting Times     | Turnaround Times | Response Times |    |    | Wait Time                            | TurnAround Times | Response Times |                |    |
+| P1                               |               |                  |                |    |    |                      |                  |                |    |    |                                      |                  |                |                |    |
 | P2                               |               |                  |                |    | P1 |                      |                  |                |    | P1 |                                      |                  |                |                |    | 
 | P3                               |               |                  |                |    | P2 |                      |                  |                |    | P2 |                                      |                  |                |                |    |
 | P4                               |               |                  |                |    | P3 |                      |                  |                |    | P3 |                                      |                  |                |                |    |
 | P5                               |               |                  |                |    | P4 |                      |                  |                |    | P4 |                                      |                  |                |                |    |
 | P6                               |               |                  |                |    | P5 |                      |                  |                |    | P5 |                                      |                  |                |                |    |
 | P7                               |               |                  |                |    | P6 |                      |                  |                |    | P6 |                                      |                  |                |                |    | 
-| P7                               |               |                  |                |    |P7  |                      |                  |                |    | P7 |                                      |                  |                |                |    |
+| P7                               |               |                  |                |    | P7 |                      |                  |                |    | P7 |                                      |                  |                |                |    |
 | P8                               |               |                  |                |    | P8 |                      |                  |                |    | P8 |                                      |                  |                |                |    |
 
-| RR (FCFS)  CPU Utilization: |               |                  |                |    |    | MQ CPU Utilization: |                  |                      |    |     | MFQ CPU Utilization: |                  |                |                |    |
-|:----------------------------|:-------------:|:----------------:|:--------------:|:--:|:--:|:-------------------:|:----------------:|:--------------------:|:--:|:----|----------------------|:----------------:|:--------------:|:--------------:|:--:|
-| P1                          | Waiting Times | Turnaround Times | Response Times |    |    |    Waiting Times    | Turnaround Times |    Response Times    |    |     | Wait Time            | TurnAround Times | Response Times |                |    |
-| P2                          |               |                  |                |    | P1 |                     |                  |                      |    | P1  |                      |                  |                |                |    | 
-| P3                          |               |                  |                |    | P2 |                     |                  |                      |    | P2  |                      |                  |                |                |    |
-| P4                          |               |                  |                |    | P3 |                     |                  |                      |    | P3  |                      |                  |                |                |    |
-| P5                          |               |                  |                |    | P4 |                     |                  |                      |    | P4  |                      |                  |                |                |    |
-| P6                          |               |                  |                |    | P5 |                     |                  |                      |    | P5  |                      |                  |                |                |    |
-| P7                          |               |                  |                |    | P6 |                     |                  |                      |    | P6  |                      |                  |                |                |    | 
-| P7                          |               |                  |                |    |P7  |                     |                  |                      |    | P7  |                      |                  |                |                |    |
-| P8                          |               |                  |                |    | P8 |                     |                  |                      |    | P8  |                      |                  |                |                |    |
+| RR (FCFS)  CPU Utilization: |               |                  |                |    |    | MQ CPU Utilization: |                  |                      |    |    | MFQ CPU Utilization: |                  |                |                |    |
+|:----------------------------|:-------------:|:----------------:|:--------------:|:--:|:--:|:-------------------:|:----------------:|:--------------------:|:--:|:---|----------------------|:----------------:|:--------------:|:--------------:|:--:|
+|                             | Waiting Times | Turnaround Times | Response Times |    |    |    Waiting Times    | Turnaround Times |    Response Times    |    |    | Wait Time            | TurnAround Times | Response Times |                |    |
+| P1                          |               |                  |                |    |    |                     |                  |                      |    |    |                      |                  |                |                |    |
+| P2                          |               |                  |                |    | P1 |                     |                  |                      |    | P1 |                      |                  |                |                |    | 
+| P3                          |               |                  |                |    | P2 |                     |                  |                      |    | P2 |                      |                  |                |                |    |
+| P4                          |               |                  |                |    | P3 |                     |                  |                      |    | P3 |                      |                  |                |                |    |
+| P5                          |               |                  |                |    | P4 |                     |                  |                      |    | P4 |                      |                  |                |                |    |
+| P6                          |               |                  |                |    | P5 |                     |                  |                      |    | P5 |                      |                  |                |                |    |
+| P7                          |               |                  |                |    | P6 |                     |                  |                      |    | P6 |                      |                  |                |                |    | 
+| P7                          |               |                  |                |    | P7 |                     |                  |                      |    | P7 |                      |                  |                |                |    |
+| P8                          |               |                  |                |    | P8 |                     |                  |                      |    | P8 |                      |                  |                |                |    |
 
 | FCFS (Non-Pre)  CPU Utilization: |               |                  |                |    |
 |:---------------------------------|:-------------:|:----------------:|:--------------:|:--:|
-| P1                               | Waiting Times | Turnaround Times | Response Times |    |
-| P2                               |               |                  |                |    | 
+|                                  | Waiting Times | Turnaround Times | Response Times |    |
+| P1                               |               |                  |                |    | 
+| P2                               |               |                  |                |    |
 | P3                               |               |                  |                |    |
 | P4                               |               |                  |                |    |
 | P5                               |               |                  |                |    |
 | P6                               |               |                  |                |    |
 | P7                               |               |                  |                |    |
-|                                  |               |                  |                |    |
 | P8                               |               |                  |                |    |
 
 
