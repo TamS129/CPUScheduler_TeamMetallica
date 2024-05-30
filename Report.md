@@ -135,4 +135,12 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 | P8                               |      265      |       316        |      7         |    |
 
 
-## <div align = "center" > Conclusion </div>
+## <div align = "center" > Conclusion </div>  
+ 
+## Attributes
+Tamara - Generator, SProcess, RR, FCFS-preemptive report, AlgoTest  
+Jackson - Outputer, FCFSNonPre, MFQ  
+Ken - SRTF, MLQ  
+Kelvin - Executor, SchedulerAlgorithm interface, SJF, PrioritySch  
+
+Tamara, Kelvin - AlgoResult, Pair
