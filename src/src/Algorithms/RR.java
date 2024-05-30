@@ -100,7 +100,10 @@ public class RR implements SchedulerAlgorithm{
         return result;
     }
 
-
+    /**
+     * Getter method that returns the start time.
+     * @return Current start time of our process.
+     */
     @Override
     public AlgoResult getResults(){
         return result;
