@@ -23,13 +23,13 @@ public class Executor {
      */
     public Executor() {
         this.algorithms = new SchedulerAlgorithm[7];
-        algorithms[0] = new SJF();
-        algorithms[1] = new FCFSNonPre();
-        algorithms[2] = new MFQ();
-        algorithms[3] = new PrioritySch();
-        algorithms[4] = new RR();
-        algorithms[5] = new SRTF();
-        algorithms[6] = new MQ();
+        algorithms[0] = new SJF(true);
+        algorithms[1] = new FCFSNonPre(true);
+        algorithms[2] = new MFQ(true);
+        algorithms[3] = new PrioritySch(true);
+        algorithms[4] = new RR(true);
+        algorithms[5] = new SRTF(true);
+        algorithms[6] = new MQ(true);
         this.results = new AlgoResult[7];
     }
 

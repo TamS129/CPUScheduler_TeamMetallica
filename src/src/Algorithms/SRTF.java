@@ -20,8 +20,8 @@ public class SRTF implements SchedulerAlgorithm {
     /**
      * Constructor for SRTF Class
      */
-    public SRTF() {
-        this.myResult = new AlgoResult(getName());
+    public SRTF(boolean showOutput) {
+        this.myResult = new AlgoResult(getName(), showOutput);
     }
 
     /**
