@@ -46,6 +46,22 @@ public class FCFSNonPre implements SchedulerAlgorithm {
                 result.getCPUactivity().add(new AlgoResult.Pair(currentProcess.getStartTime(),
                                                                 currentProcess.getStopTime()));
                 result.getExecutionOrder().add(currentProcess.getTitle());
+                Queue<SProcess> currentReadyQueue = new LinkedList<>();
+                for (SProcess process : readyQueue) {
+                    int[] burstTimes = process.getBurstTimes();
+                    SProcess newProcess = new SProcess(process.getTitle(), burstTimes, process.getPriorityLevel());
+                    newProcess.setCurrCPUindex(process.getCurrCPUindex());
+                    currentReadyQueue.add(newProcess);
+                }
+                result.getReadyQueueActivity().add(currentReadyQueue);
+
+                Queue<SProcess> currentIOQueue = new LinkedList<>();
+                for (SProcess process : ioQueue) {
+                    SProcess newProcess = new SProcess(process.getTitle(), new int[0], process.getPriorityLevel());
+                    newProcess.setCurrIOindex(process.getCurrIOindex());
+                    currentIOQueue.add(newProcess);
+                }
+                result.getIoQueueActivity().add(currentIOQueue);
 
                 if (currentProcess.getCurrIOindex() >= currentProcess.getBurstTimes().length - 1) {
                     currentProcess.setExitTime(currentTime);
