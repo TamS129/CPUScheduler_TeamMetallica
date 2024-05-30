@@ -18,7 +18,9 @@ public class AlgoTest{
     Map<String, Integer> waitTimes;
 
 
-
+    /**
+     * Creates a new CPU Processes on a smaller scale that will be used to test our Algorithms.
+     */
     public void createProcessTest(){
         Generator gen = new Generator(0);
 
@@ -36,10 +38,12 @@ public class AlgoTest{
 
         testProcessList = gen.getProcesses();
 
-
-
-
     }
+
+    /**
+     * Testing method that checks if our Round Robin Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testRR() {
         createProcessTest();
@@ -78,11 +82,12 @@ public class AlgoTest{
         waitTimes.clear();
         ttTimes.clear();
 
-
-
-
     }
 
+    /**
+     * Testing method that checks if our FCFS Non-Preemptive Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testFCFSNonPre(){
         createProcessTest();
@@ -121,6 +126,10 @@ public class AlgoTest{
         ttTimes.clear();
     }
 
+    /**
+     * Testing method that checks if our MFQ Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testMFQ(){
 //        createProcessTest();
@@ -141,6 +150,10 @@ public class AlgoTest{
 
     }
 
+    /**
+     * Testing method that checks if our MQ Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testMQ(){
 //        createProcessTest();
@@ -154,6 +167,10 @@ public class AlgoTest{
 //        ttTimes = testOut.getTurnaroundTimes(testResults);
     }
 
+    /**
+     * Testing method that checks if our Priority Scheduler Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testPrioritySch(){
         createProcessTest();
@@ -191,6 +208,11 @@ public class AlgoTest{
         waitTimes.clear();
         ttTimes.clear();
     }
+
+    /**
+     * Testing method that checks if our SJF Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testSJF(){
         createProcessTest();
@@ -228,6 +250,11 @@ public class AlgoTest{
         waitTimes.clear();
         ttTimes.clear();
     }
+
+    /**
+     * Testing method that checks if our SRTF Algorithm returns the correct response, wait, and
+     * turn around times.
+     */
     @Test
     public void testSRTF(){
 
