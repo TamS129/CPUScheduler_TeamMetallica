@@ -77,20 +77,19 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 | Avg Turnaround Time |                |    N/A     |               |      |          |          |     |      |
 | Avg Response Time   |                |    N/A     |               |      |          |          |     |      |
 ### <div align = "center"> CPU Utilization </div>
-<!--- Insert Chart --->
+![CPUchart](src/src/Images/CPU Utilization Averages.png)
 <!--- Insert Dicussion of CPU Utilization--->
 
 ### <div align = "center"> Waiting Times </div>
-<!--- Insert Table--->
+![WaitingTime](src/src/Images/Wait Tmes Averages.png)
 <!--- Insert Dicussion of WT--->
 
 ### <div align = "center"> Turnaround Times </div>
-<!--- Insert Chart--->
-<!--- Insert Table--->
+![TurnaroundTimeChart](src/src/Images/Turnaround Times Averages.png)
 <!--- Insert Dicussion of TT--->
 
 ### <div align = "center"> Response Times </div>
-<!--- Insert Chart--->
+![Response Time Chart](src/src/Images/Response Times Averages.png)
 <!--- Insert Table--->
 <!--- Insert Dicussion of RT--->
 
