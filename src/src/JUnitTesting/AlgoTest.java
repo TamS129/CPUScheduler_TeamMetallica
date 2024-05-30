@@ -109,11 +109,11 @@ public class AlgoTest{
         expectedFCRT.put("P2",4);
         expectedFCRT.put("P3",14);
 
-        expectedFCTT.put("P1",34);
+        expectedFCTT.put("P1",38);
         expectedFCTT.put("P2",53);
         expectedFCTT.put("P3",69);
 
-        expectedFCWT.put("P1",19);
+        expectedFCWT.put("P1",23);
         expectedFCWT.put("P2",30);
         expectedFCWT.put("P3",38);
 

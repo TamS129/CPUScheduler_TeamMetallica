@@ -2,6 +2,7 @@ package Test;
 
 import Algorithms.*;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
@@ -34,12 +35,13 @@ public class Executor {
 
     /**
      * Method to execute a list of SProcesses against a Scheduling Algorithm
-     * @param SProcesses List of SProcesses to schedule
      */
-    public void execute(ArrayList<SProcess> SProcesses) {
+    public void execute() {
+        //TODO: Make fresh array list for each run
         for(int i = 0; i < algorithms.length; i++) {
-           results[i] = algorithms[i].runAlgo(SProcesses);
-           resetValues(SProcesses);
+            Generator mygen = new Generator<>();
+            ArrayList<SProcess> list = mygen.getProcesses();
+            results[i] = algorithms[i].runAlgo(list);
         }
     }
 
@@ -72,12 +74,11 @@ public class Executor {
 
     public static void main(String[] args) {
         Executor myExec = new Executor();
-        Generator mygen = new Generator<>();
-        ArrayList<SProcess> list = mygen.getProcesses();
-        myExec.execute(list);
+        myExec.execute();
 
         Outputer outputer = new Outputer(myExec);
         outputer.printResults();
+        outputer.writeResultsToFile("output.txt");
 
     }
 }
