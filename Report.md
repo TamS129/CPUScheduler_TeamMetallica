@@ -1,8 +1,8 @@
 # <div align = "center"> CPU Scheduler Algorithm Experiment </div>
-## <div align = "center"> Written by: Jackson Kettel, Kelvin Kelvin Rajbhandari, Ken Cage, Tamara Slone </div>
+## <div align = "center"> Written by: Jackson Kettel, Kelvin Rajbhandari, Ken Cage, Tamara Slone </div>
 
 ## Table of Contents
-### [Introduction](vhttps://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-introduction-)
+### [Introduction](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-introduction-)
 * [First Come, First Serve Non-Preemptive](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-first-come-first-serve-fcfs-non-preemptive-)
 * [First Come, First Serve Preemptive](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-first-come-first-serve-fcfs-preemptive-)
 * [Shortest Job First](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-shortest-job-first-sjf-)
@@ -18,7 +18,7 @@
   * [Waiting Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-waiting-times-)
   * [Turnaround Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-turnaround-times-)
   * [Response Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-response-times-)
-* [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times)
+* [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times-)
 ### [Conculsion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-conclusion-)
 
 
@@ -40,10 +40,18 @@
 &nbsp; &nbsp; &nbsp; &nbsp; When checking into the similarities between FCFS being implemented with a preemptive priority level and how Priority Scheduling is structured, I cannot help but agree that these two algorithms are closely related. One factor in this change is the way that Priority scheduling takes in the first process by its priority level (which can be numbered) and executes it based on the order, which is very similar to how FCFS takes in the process based on its arrival time executes it. The two algorithms are alike in how they implement their ready queues, with the highest priority or first arrival being at the top of the queue list and the lowest priority or last arrival being at the bottom of the queue. The only differences between these two algorithms being in the complexity of how they are written and the differences in wait times. Therefore, if FCFS were to implement preemptive hierarchies it would transform into a preemptive Priority Scheduling algorithm.
 
 ### <div align = "center"> Shortest Job First (SJF) </div>
-<!--- Paragraph about SJF Non-preemptive Algorithm --->
+The **Shortest Job First (SJF)** scheduling algorithm is a non-preemptive scheduling strategy that selects the process with the smallest CPU burst time for execution next. This approach aims to minimize the average waiting time for processes in the ready queue, thereby improving overall system efficiency.
+
+**However**, the SJF algorithm cannot be implemented at the level of CPU Scheduling because it's impossible to know the burst times of a process beforehand. Therefore in SJF, each process is assigned an estimated burst time approximated as ab exponential average of measure lengths of previous CPU bursts. The scheduler then picks the process with the shortest burst time and executes it until the burst time is over. Then if processes have I/O bursts as well, the process is sent to an I/O wait queue where it has to wait out the duration of it's I/O burst before it can join the ready queue. This cycle is repeated for the remaining processes until they're all fully completed.
+
+One of the key advantages of SJF is its ability to significantly reduce the average turnaround time and waiting time, making it an optimal choice for batch processing systems where processes are executed in a batch without requiring user interaction. The major drawback of SJF, as mentioned above, is the difficulty in accurately estimating the burst time, which can lead to suboptimal scheduling decisions if the estimates are incorrect. Additionally, SJF can suffer from the "starvation" problem, where longer processes may be delayed indefinitely if short processes continue to arrive. To mitigate this issue, a variation known as Shortest Remaining Time First (SRTF) can be used, where the process with the smallest remaining execution time is selected, providing a more dynamic and responsive scheduling approach.
 
 ### <div align = "center"> Priority Scheduling </div>
-<!--- Paragraph about Priority Scheduling Algorithm --->
+The **Priority Scheduling** Algorithm is a versatile and widely used scheduling algorithm where each process is assigned a priority level, and the CPU is allocated to the process with the highest priority. This algorithm is naturally preemptive as if a new process arrives with a higher priority than the currently running process, the CPU is preempted and reassigned to the new process, ensuring that high-priority tasks are executed promptly.
+
+Priority Scheduling is particularly useful in real-time systems where certain tasks must be prioritized over others to meet critical deadlines, such as in embedded systems or operating systems with strict timing requirements. One of its primary advantages is the flexibility it offers in managing different types of processes with varying levels of importance, allowing for more effective resource allocation.
+
+The major drawback of Priority Scheduling is that the algorithm can lead to the issue of "starvation," where low-priority processes may never get executed if higher priority processes continue to arrive. To mitigate this, aging techniques can be implemented, where the priority of a process increases the longer it waits, ensuring that all processes eventually receive CPU time. This approach balances the needs of both high-priority and low-priority processes, enhancing overall system performance and responsiveness.
 
 ### <div align = "center"> Round Robin (with FCFS) </div>
 Within our CPU Scheduler experiment, one of the algorithms that was added into our project is Round Robin with FCFS implementation. **Round Robin (RR)** is a commonly used scheduling algorithm that uses **time slicing** (or time quantum’s) to assign a fixed unit of time for every process. Round Robn ensures that no single process can monopolize the CPU, as each process gets a fair share of CPU time in a cyclic manner. If a process’s burst time exceeds the time quantum, it is preempted and moved to the end of the queue, allowing the next process to use the CPU. This continues until all processes are completed. This algorithm can make sure all processes get a fair share of CPU time and is easy to implement. However, it can suffer from high context-switching overhead if the time quantum is too small. Round Robin may also degrade to a First-Come, First-Served (FCFS) behavior if the time quantum is too large. (More information on FCFS can be found [here](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-first-come-first-serve-fcfs-preemptive-).) This can lead to inefficiencies like the "convoy effect" where short processes wait behind long ones. Which in turn makes choosing a time quantum for implementing this algorithm important
@@ -58,7 +66,7 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 
 ## <div align = "center"> Project Design (UML) </div>
 
-![UMLCPU](Images/UMLDesignCPU.png);
+![UMLCPU](src/src/Images/UMLDesignCPU.png);
 
 ## <div align = "center"> Final Results </div>
 ## <div align = "center" > Average Result Times </div>
