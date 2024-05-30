@@ -12,8 +12,8 @@ public class RR implements SchedulerAlgorithm {
 
     AlgoResult result;
 
-    public RR(){
-        this.result = new AlgoResult(getName());
+    public RR(boolean showOutput){
+        this.result = new AlgoResult(getName(), showOutput);
     }
 
     /**

@@ -10,17 +10,19 @@ public class AlgoResult {
     ArrayList<String> executionOrder;
     ArrayList<Queue<SProcess>> readyQueueActivity;
     ArrayList<Queue<SProcess>> ioQueueActivity;
+    boolean showOutput;
 
     /**
      * Constructor that holds an object for our algorithm name, ArrayList of CPU activities, and executionOrder.
      * @param algorithmName - Name of the current algorithm. Ex "Round Robin"
      */
-    public AlgoResult(String algorithmName){
+    public AlgoResult(String algorithmName, boolean showOutput){
         this.algorithmName = algorithmName;
         this.CPUactivity = new ArrayList<>();
         this.executionOrder = new ArrayList<>();
         this.readyQueueActivity = new ArrayList<>();
         this.ioQueueActivity = new ArrayList<>();
+        this.showOutput = showOutput;
     }
 
     /**

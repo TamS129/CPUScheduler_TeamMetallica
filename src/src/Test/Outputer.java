@@ -56,38 +56,61 @@ public class Outputer {
     public void writeResultsToFile(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (AlgoResult result : results) {
-                /*for (int i = 0; i < result.getExecutionOrder().size(); i++) {
-                    writer.write("Time: " + result.getCPUactivity().get(1).getStartTime() +
-                            ", " + result.getExecutionOrder().get(i) + ", " + );
-                }*/
-                if (result != null) {
-                    writer.write("========================================\n");
-                    writer.write("Results for " + result.getAlgorithmName() + ":\n");
-                    writer.write("Total time to complete all processes: " + getTotalTime(result) + "\n");
-                    writer.write("CPU Utilization: " + getCPUUtilization(result) + "%\n");
-
-                    Map<String, Integer> waitingTimes = getWaitingTimes(result);
-                    writer.write("Waiting times for each process:\n");
-                    for (Map.Entry<String, Integer> entry : waitingTimes.entrySet()) {
-                        writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+                if (result.showOutput) {
+                    writer.write("All context switches for " + result.getAlgorithmName() + ":\n\n");
+                    for (int i = 0; i < result.getCPUactivity().size(); i++) {
+                        int currentTime = result.getCPUactivity().get(i).getStartTime();
+                        StringBuilder ready = new StringBuilder("[");
+                        for (SProcess proces : result.getReadyQueueActivity().get(i)) {
+                            ready.append(proces.getTitle());
+                            ready.append("(");
+                            ready.append(proces.getBurstTimes()[proces.getCurrCPUindex()]);
+                            ready.append("), ");
+                        }
+                        ready.append("]");
+                        StringBuilder io = new StringBuilder("[");
+                        for (SProcess proces : result.getIoQueueActivity().get(i)) {
+                            io.append(proces.getTitle());
+                            io.append("(");
+                            io.append(proces.getReturnTime() - currentTime);
+                            io.append("), ");
+                        }
+                        io.append("]");
+                        writer.write("Current time: " + currentTime +
+                                        ", Running Process: " + result.getExecutionOrder().get(i) + "\n" +
+                                        "   Ready Queue:" + ready +  "\n" +
+                                        "   I/O Queue:" + io + "\n\n");
                     }
-                    writer.write("Average waiting time: " + getAverageTime(waitingTimes) + "\n");
+                    if (result != null) {
+                        writer.write("========================================\n");
+                        writer.write("Results for " + result.getAlgorithmName() + ":\n");
+                        writer.write("Total time to complete all processes: " + getTotalTime(result) + "\n");
+                        writer.write("CPU Utilization: " + getCPUUtilization(result) + "%\n");
 
-                    Map<String, Integer> turnaroundTimes = getTurnaroundTimes(result);
-                    writer.write("Turnaround times for each process:\n");
-                    for (Map.Entry<String, Integer> entry : turnaroundTimes.entrySet()) {
-                        writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
-                    }
-                    writer.write("Average turnaround time: " + getAverageTime(turnaroundTimes) + "\n");
+                        Map<String, Integer> waitingTimes = getWaitingTimes(result);
+                        writer.write("Waiting times for each process:\n");
+                        for (Map.Entry<String, Integer> entry : waitingTimes.entrySet()) {
+                            writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+                        }
+                        writer.write("Average waiting time: " + getAverageTime(waitingTimes) + "\n");
 
-                    Map<String, Integer> responseTimes = getResponseTimes(result);
-                    writer.write("Response times for each process:\n");
-                    for (Map.Entry<String, Integer> entry : responseTimes.entrySet()) {
-                        writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+                        Map<String, Integer> turnaroundTimes = getTurnaroundTimes(result);
+                        writer.write("Turnaround times for each process:\n");
+                        for (Map.Entry<String, Integer> entry : turnaroundTimes.entrySet()) {
+                            writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+                        }
+                        writer.write("Average turnaround time: " + getAverageTime(turnaroundTimes) + "\n");
+
+                        Map<String, Integer> responseTimes = getResponseTimes(result);
+                        writer.write("Response times for each process:\n");
+                        for (Map.Entry<String, Integer> entry : responseTimes.entrySet()) {
+                            writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+                        }
+                        writer.write("Average response time: " + getAverageTime(responseTimes) + "\n");
+                        writer.write("========================================\n");
                     }
-                    writer.write("Average response time: " + getAverageTime(responseTimes) + "\n");
-                    writer.write("========================================\n");
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
