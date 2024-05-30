@@ -21,7 +21,6 @@ public class MFQ implements SchedulerAlgorithm{
      * @param processes List of processes
      * @return An AlgoResult object, a summary of the findings
      */
-
     public AlgoResult runAlgo(ArrayList<SProcess> processes) {
         int currentTime = 0;
 
@@ -74,6 +73,12 @@ public class MFQ implements SchedulerAlgorithm{
         return result;
     }
 
+    /**
+     * Method to handle the IO Queue
+     * @param ioQueue Queue of processes in IO
+     * @param queue1 Queue of processes in the first level
+     * @param currentTime Current time
+     */
     private void handleIOQueue(Queue<SProcess> ioQueue, Queue<SProcess> queue1, int currentTime) {
         Queue<SProcess> tempQueue = new LinkedList<>();
         while (!ioQueue.isEmpty()) {
@@ -87,6 +92,13 @@ public class MFQ implements SchedulerAlgorithm{
         ioQueue.addAll(tempQueue);
     }
 
+    /**
+     *
+     * @param process
+     * @param quantum
+     * @param currentTime
+     * @return
+     */
     private int executeProcess(SProcess process, int quantum, int currentTime) {
         int remainingBurst = process.getBurstTimes()[process.getCurrCPUindex()];
         int executedTime = Math.min(remainingBurst, quantum);
@@ -98,6 +110,12 @@ public class MFQ implements SchedulerAlgorithm{
         return executedTime;
     }
 
+    /**
+     * Method to finalize a process
+     * @param process Process to finalize
+     * @param currentTime Current time
+     * @param ioQueue Queue of processes in IO
+     */
     private void finalizeProcess(SProcess process, int currentTime, Queue<SProcess> ioQueue){
         if (process.getCurrCPUindex() >= process.getBurstTimes().length - 1) {
             process.setExitTime(currentTime);
@@ -120,6 +138,10 @@ public class MFQ implements SchedulerAlgorithm{
         return "Multilevel Feedback Queue";
     }
 
+    /**
+     * Method to result AlgoResult object that has final order of execution
+     * @return AlgoResult object
+     */
     @Override
     public AlgoResult getResults(){
         return result;
