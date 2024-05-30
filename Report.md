@@ -70,12 +70,12 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 
 ## <div align = "center"> Final Results </div>
 ## <div align = "center" > Average Result Times </div>
-|                     | FCFS (Non-Pre) | FCFS (Pre) | SJF(Non-Pre)  | SRTF | Priority | RR(FCFS) | MLQ | MLFQ |
-|:--------------------|:--------------:|:----------:|:-------------:|:----:|:--------:|:--------:|:---:|:----:|
-| CPU utilization     |                |    N/A     |               |      |          |          |     |      |
-| Avg Waiting time    |                |    N/A     |               |      |          |          |     |      |
-| Avg Turnaround Time |                |    N/A     |               |      |          |          |     |      |
-| Avg Response Time   |                |    N/A     |               |      |          |          |     |      |
+|                     | FCFS (Non-Pre) | FCFS (Pre) |            SJF(Non-Pre)             |  SRTF   | Priority |        RR(FCFS)        |          MLQ          |         MLFQ          |
+|:--------------------|:--------------:|:----------:|:-----------------------------------:|:-------:|:--------:|:----------------------:|:---------------------:|:---------------------:|
+| CPU utilization     |     82.41%     |    N/A     |               83.72%                | 154.47% |  79.41%  |         89.19%         |        100.0%         |        90.95%         |
+| Avg Waiting time    |     465.0      |    N/A     |               346.25                | 285.13  | 377.125  |         418.0          |        24.375         |        446.125        |
+| Avg Turnaround Time |     534.13     |    N/A     |               409.25                | 354.25  |  454.25  |        487.125         |         32.5          |        515.25         |
+| Avg Response Time   |     24.38      |    N/A     |               27.125                | 18.125  |  197.625 |         15.75          |        24.375         |         15.75         |
 ### <div align = "center"> CPU Utilization </div>
 <!--- Insert Chart --->
 <!--- Insert Dicussion of CPU Utilization--->
