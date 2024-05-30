@@ -47,7 +47,7 @@ public class AlgoTest{
     @Test
     public void testRR() {
         createProcessTest();
-        RR test = new RR();
+        RR test = new RR(false);
         Outputer testOut = new Outputer();
 
         test.runAlgo(testProcessList);
@@ -91,7 +91,7 @@ public class AlgoTest{
     @Test
     public void testFCFSNonPre(){
         createProcessTest();
-        FCFSNonPre test = new FCFSNonPre();
+        FCFSNonPre test = new FCFSNonPre(false);
         Outputer testOut = new Outputer();
 
         test.runAlgo(testProcessList);
@@ -174,7 +174,7 @@ public class AlgoTest{
     @Test
     public void testPrioritySch(){
         createProcessTest();
-        PrioritySch test = new PrioritySch();
+        PrioritySch test = new PrioritySch(false);
         Outputer testOut = new Outputer();
 
         test.runAlgo(testProcessList);
@@ -216,7 +216,7 @@ public class AlgoTest{
     @Test
     public void testSJF(){
         createProcessTest();
-        SJF test = new SJF();
+        SJF test = new SJF(false);
         Outputer testOut = new Outputer();
 
         test.runAlgo(testProcessList);
@@ -259,7 +259,7 @@ public class AlgoTest{
     public void testSRTF(){
 
         createProcessTest();
-        PrioritySch test = new PrioritySch();
+        PrioritySch test = new PrioritySch(false);
         Outputer testOut = new Outputer();
 
         test.runAlgo(testProcessList);
