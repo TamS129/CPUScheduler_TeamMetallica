@@ -81,14 +81,16 @@ In our Round Robin (with FCFS) algorithm, we have implemented a time quantum of 
 <!--- Insert Dicussion of CPU Utilization--->
 
 ### <div align = "center"> Waiting Times </div>
-![WaitingTime](src/src/Images/Wait Tmes Averages.png)
+![WaitingTime](src/src/Images/Wait Tmes Averages.png);
 <!--- Insert Dicussion of WT--->
 
 ### <div align = "center"> Turnaround Times </div>
-![TurnaroundTimeChart](src/src/Images/Turnaround Times Averages.png)
+
+![TurnaroundTimeChart](src/src/Images/Turnaround Times Averages.png);
 <!--- Insert Dicussion of TT--->
 
 ### <div align = "center"> Response Times </div>
+
 ![Response Time Chart](src/src/Images/Response Times Averages.png)
 <!--- Insert Table--->
 <!--- Insert Dicussion of RT--->
