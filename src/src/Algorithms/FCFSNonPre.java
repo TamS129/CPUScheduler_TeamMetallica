@@ -47,7 +47,7 @@ public class FCFSNonPre implements SchedulerAlgorithm {
                                                                 currentProcess.getStopTime()));
                 result.getExecutionOrder().add(currentProcess.getTitle());
 
-                if (currentProcess.getCurrIOindex() + 2 >= currentProcess.getBurstTimes().length) {
+                if (currentProcess.getCurrIOindex() >= currentProcess.getBurstTimes().length - 1) {
                     currentProcess.setExitTime(currentTime);
                 } else {
                     int currentIOBurst = currentProcess.getBurstTimes()[currentProcess.getCurrIOindex()];
