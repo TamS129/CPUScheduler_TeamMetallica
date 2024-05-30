@@ -3,16 +3,23 @@ package Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// Coded by Tamara Slone
 public class Generator<T> {
     ArrayList<SProcess> processes = new ArrayList<>();
 
+    /**
+     * Constructor made to use for testing purposes.
+     * @param testNum - Integer just to signify for testing.
+     */
     public Generator(int testNum){
         testNum = 0;
         //Generator just for Testing purposes.
     }
 
+    /**
+     * Constructor that generates Processes to be put through our Executor.
+     */
     public Generator(){
-        //Insert HashMap to hold all Array values.
 
         //Process 1
         String title1 = "P1";
@@ -57,11 +64,22 @@ public class Generator<T> {
 
     }
 
+    /**
+     * Gathers information for our processes and places it into the SProcesses Object class. Once in the SProcesss
+     * Object class it's added into an ArrayList of processes.
+     * @param title- Title of the current process. Ex. "P1"
+     * @param arr - Array that holds our CPU/IO burst times.
+     * @param priorityLevel - Priority leveling that marks the priority of that process.
+     */
     public void generateProcess(String title, int[] arr, int priorityLevel){
         SProcess newSProcess = new SProcess(title, arr, priorityLevel);
         processes.add(newSProcess);
     }
 
+    /**
+     * Returns the arrayList of processes.
+     * @return processes ArrayList
+     */
     public ArrayList<SProcess> getProcesses() {
         return processes;
     }
