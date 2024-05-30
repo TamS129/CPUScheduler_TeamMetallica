@@ -69,6 +69,25 @@ public class RR implements SchedulerAlgorithm {
                     result.getCPUactivity().add(new Pair(currentProcess.getStartTime(), currentProcess.getStopTime()));
                     result.getExecutionOrder().add(currentProcess.getTitle());
 
+                    Queue<SProcess> currentReadyQueue = new LinkedList<>();
+                    for (SProcess process : ready) {
+                        int[] burstTimes = process.getBurstTimes();
+                        SProcess newProcess = new SProcess(process.getTitle(), burstTimes, process.getPriorityLevel());
+                        newProcess.setCurrCPUindex(process.getCurrCPUindex());
+                        currentReadyQueue.add(newProcess);
+                    }
+                    result.getReadyQueueActivity().add(currentReadyQueue);
+
+                    Queue<SProcess> currentIOQueue = new LinkedList<>();
+                    for (SProcess process : ioWait) {
+                        SProcess newProcess = new SProcess(process.getTitle(), new int[0], process.getPriorityLevel());
+                        newProcess.setCurrIOindex(process.getCurrIOindex());
+                        currentIOQueue.add(newProcess);
+                    }
+                    result.getIoQueueActivity().add(currentIOQueue);
+
+
+
                     if (currentProcess.getCurrCPUindex() < bursts.length - 1) {
                         currentProcess.setCurrCPUindex(currentProcess.getCurrCPUindex() + 2);
                         ioWait.add(currentProcess);
@@ -82,6 +101,24 @@ public class RR implements SchedulerAlgorithm {
                     currentProcess.setStopTime(currentTime);
                     result.getCPUactivity().add(new Pair(currentProcess.getStartTime(), currentProcess.getStopTime()));
                     result.getExecutionOrder().add(currentProcess.getTitle());
+
+                    Queue<SProcess> currentReadyQueue = new LinkedList<>();
+                    for (SProcess process : ready) {
+                        int[] burstTimes = process.getBurstTimes();
+                        SProcess newProcess = new SProcess(process.getTitle(), burstTimes, process.getPriorityLevel());
+                        newProcess.setCurrCPUindex(process.getCurrCPUindex());
+                        currentReadyQueue.add(newProcess);
+                    }
+                    result.getReadyQueueActivity().add(currentReadyQueue);
+
+                    Queue<SProcess> currentIOQueue = new LinkedList<>();
+                    for (SProcess process : ioWait) {
+                        SProcess newProcess = new SProcess(process.getTitle(), new int[0], process.getPriorityLevel());
+                        newProcess.setCurrIOindex(process.getCurrIOindex());
+                        currentIOQueue.add(newProcess);
+                    }
+                    result.getIoQueueActivity().add(currentIOQueue);
+
                     bursts[currentProcess.getCurrCPUindex()] -= tq;
                     ready.add(currentProcess);
 
