@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class RR implements SchedulerAlgorithm{
+public class RR implements SchedulerAlgorithm {
 
     AlgoResult result;
 
@@ -34,7 +34,6 @@ public class RR implements SchedulerAlgorithm{
         int currentTime = 0;
 
         while (!ready.isEmpty() || !ioWait.isEmpty()) {
-
             Queue<SProcess> remainingIoWait = new LinkedList<>();
             while (!ioWait.isEmpty()) {
                 SProcess ioProcess = ioWait.poll();
@@ -49,19 +48,21 @@ public class RR implements SchedulerAlgorithm{
                     remainingIoWait.add(ioProcess);
                 }
             }
+            ioWait = remainingIoWait;
 
             if (!ready.isEmpty()) {
-
                 SProcess currentProcess = ready.poll();
                 int[] bursts = currentProcess.getBurstTimes();
                 int cpuBurst = bursts[currentProcess.getCurrCPUindex()];
                 currentProcess.setStartTime(currentTime);
 
                 if (cpuBurst <= tq) {
-                    // Update return time based on sum of CPU and I/O burst
-                    currentProcess.setReturnTime(currentTime + cpuBurst + bursts[currentProcess.getCurrIOindex()]);
+                    // Update return time based on sum of CPU and I/O burst/
+                    if (currentProcess.getCurrCPUindex() != bursts.length - 1) {
+                        currentProcess.setReturnTime(currentTime + cpuBurst + bursts[currentProcess.getCurrIOindex()]);
+                    }
                     currentTime += cpuBurst;
-                    currentProcess.setCurrCPUindex(currentProcess.getCurrCPUindex() + 2);
+
 
                     currentProcess.setStopTime(currentTime);
 
@@ -69,6 +70,7 @@ public class RR implements SchedulerAlgorithm{
                     result.getExecutionOrder().add(currentProcess.getTitle());
 
                     if (currentProcess.getCurrCPUindex() < bursts.length - 1) {
+                        currentProcess.setCurrCPUindex(currentProcess.getCurrCPUindex() + 2);
                         ioWait.add(currentProcess);
                     } else {
                         currentProcess.setExitTime(currentTime);
@@ -77,13 +79,16 @@ public class RR implements SchedulerAlgorithm{
                 } else {
 
                     currentTime += tq;
+                    currentProcess.setStopTime(currentTime);
+                    result.getCPUactivity().add(new Pair(currentProcess.getStartTime(), currentProcess.getStopTime()));
+                    result.getExecutionOrder().add(currentProcess.getTitle());
                     bursts[currentProcess.getCurrCPUindex()] -= tq;
                     ready.add(currentProcess);
 
                 }
 
             }
-            else{
+            else {
                 int fastForward = ioWait.peek().getReturnTime();
                 for(SProcess process : ioWait){
                     if(process.getReturnTime() < fastForward){
@@ -93,8 +98,6 @@ public class RR implements SchedulerAlgorithm{
                 }
                 currentTime = fastForward;
             }
-
-            ioWait = remainingIoWait;
         }
 
         return result;
@@ -118,7 +121,4 @@ public class RR implements SchedulerAlgorithm{
     public String getName() {
         return "Round Robin (FCFS)";
     }
-
 }
-
-

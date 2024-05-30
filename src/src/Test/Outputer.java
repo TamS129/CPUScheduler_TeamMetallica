@@ -56,6 +56,10 @@ public class Outputer {
     public void writeResultsToFile(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (AlgoResult result : results) {
+                /*for (int i = 0; i < result.getExecutionOrder().size(); i++) {
+                    writer.write("Time: " + result.getCPUactivity().get(1).getStartTime() +
+                            ", " + result.getExecutionOrder().get(i) + ", " + );
+                }*/
                 if (result != null) {
                     writer.write("========================================\n");
                     writer.write("Results for " + result.getAlgorithmName() + ":\n");
