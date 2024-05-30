@@ -2,6 +2,7 @@ package Test;
 
 import Algorithms.*;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
@@ -78,6 +79,7 @@ public class Executor {
 
         Outputer outputer = new Outputer(myExec);
         outputer.printResults();
+        outputer.writeResultsToFile("output.txt");
 
     }
 }
