@@ -9,8 +9,8 @@ public class FCFSNonPre implements SchedulerAlgorithm {
 
     private AlgoResult result;
 
-    public FCFSNonPre() {
-        this.result = new AlgoResult(getName());
+    public FCFSNonPre(boolean showOutput) {
+        this.result = new AlgoResult(getName(), showOutput);
     }
     /**
      * Method to run a list of processes through a scheduling algorithm
@@ -43,6 +43,7 @@ public class FCFSNonPre implements SchedulerAlgorithm {
                 currentProcess.setStopTime(currentTime + currentCPUBurst);
                 currentTime += currentCPUBurst;
 
+                // Record the results of the current state of the algorithm
                 result.getCPUactivity().add(new AlgoResult.Pair(currentProcess.getStartTime(),
                                                                 currentProcess.getStopTime()));
                 result.getExecutionOrder().add(currentProcess.getTitle());

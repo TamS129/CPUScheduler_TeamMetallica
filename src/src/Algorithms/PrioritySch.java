@@ -22,8 +22,8 @@ public class PrioritySch implements SchedulerAlgorithm {
     /**
      * Constructor for PriorityScheduling Class
      */
-    public PrioritySch() {
-        this.myResult = new AlgoResult(getName());
+    public PrioritySch(boolean showOutput) {
+        this.myResult = new AlgoResult(getName(), showOutput);
     }
 
     /**

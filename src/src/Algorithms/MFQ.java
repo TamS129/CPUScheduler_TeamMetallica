@@ -12,8 +12,8 @@ public class MFQ implements SchedulerAlgorithm{
 
     AlgoResult result;
 
-    public MFQ() {
-        this.result = new AlgoResult(getName());
+    public MFQ(boolean showOutput) {
+        this.result = new AlgoResult(getName(), showOutput);
     }
     /**
      * Method to run a list of processes through a scheduling algorithm

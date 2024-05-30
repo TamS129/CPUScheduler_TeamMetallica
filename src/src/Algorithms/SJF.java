@@ -23,8 +23,8 @@ public class SJF implements SchedulerAlgorithm{
     /**
      * Constructor for SJF Class
      */
-    public SJF(){
-        this.myResult = new AlgoResult(getName());
+    public SJF(boolean showOutput){
+        this.myResult = new AlgoResult(getName(), showOutput);
     }
 
     /**

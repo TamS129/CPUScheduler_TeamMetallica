@@ -5,8 +5,10 @@ import Test.SProcess;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;public class MQ implements SchedulerAlgorithm {
-    AlgoResult result = new AlgoResult(ALGO_NAME);
-    private static final String ALGO_NAME = "Multilevel Queue Scheduling";  /**
+    AlgoResult result;
+    private static final String ALGO_NAME = "Multilevel Queue Scheduling";
+    public MQ(boolean showOutput) {result = new AlgoResult(getName(), showOutput);}
+    /**
      * Method to run a list of processes through a scheduling algorithm
      *
      * @param processes List of processes
