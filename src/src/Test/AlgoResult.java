@@ -1,12 +1,15 @@
 package Test;
 
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class AlgoResult {
 
     String algorithmName;
     ArrayList<Pair> CPUactivity;
     ArrayList<String> executionOrder;
+    ArrayList<Queue<SProcess>> readyQueueActivity;
+    ArrayList<Queue<SProcess>> ioQueueActivity;
 
     /**
      * Constructor that holds an object for our algorithm name, ArrayList of CPU activities, and executionOrder.
@@ -16,6 +19,8 @@ public class AlgoResult {
         this.algorithmName = algorithmName;
         this.CPUactivity = new ArrayList<>();
         this.executionOrder = new ArrayList<>();
+        this.readyQueueActivity = new ArrayList<>();
+        this.ioQueueActivity = new ArrayList<>();
     }
 
     /**
@@ -41,6 +46,10 @@ public class AlgoResult {
     public ArrayList<String> getExecutionOrder() {
         return executionOrder;
     }
+
+    public ArrayList<Queue<SProcess>> getReadyQueueActivity() {return readyQueueActivity;}
+
+    public ArrayList<Queue<SProcess>> getIoQueueActivity() {return  ioQueueActivity;}
 
     public static class Pair {
         private int startTime;
