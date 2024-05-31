@@ -4,10 +4,7 @@ import Test.AlgoResult;
 import Test.SProcess;
 import Test.AlgoResult.Pair;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Class implementation of Priority Scheduling Algorithm
@@ -90,6 +87,24 @@ public class PrioritySch implements SchedulerAlgorithm {
 
                     myResult.getCPUactivity().add(new Pair(current.getStartTime(), current.getStopTime()));
                     myResult.getExecutionOrder().add(current.getTitle());
+
+                    Queue<SProcess> currentReadyQueue = new LinkedList<>();
+                    for (SProcess process : readyQueue) {
+
+                        int[] burstTimes = Arrays.copyOf(process.getBurstTimes(), process.getBurstTimes().length);
+                        SProcess newProcess = new SProcess(process.getTitle(), burstTimes, process.getPriorityLevel());
+                        newProcess.setCurrCPUindex(process.getCurrCPUindex());
+                        currentReadyQueue.add(newProcess);
+                    }
+                    myResult.getReadyQueueActivity().add(currentReadyQueue);
+
+                    Queue<SProcess> currentIOQueue = new LinkedList<>();
+                    for (SProcess process : waitingForIO) {
+                        SProcess newProcess = new SProcess(process.getTitle(), new int[0], process.getPriorityLevel());
+                        newProcess.setReturnTime(process.getReturnTime());
+                        currentIOQueue.add(newProcess);
+                    }
+                    myResult.getIoQueueActivity().add(currentIOQueue);
 
                     if (current.getCurrIOindex() + 2 >= current.getBurstTimes().length) {
                         current.setExitTime(timeElapsed);
