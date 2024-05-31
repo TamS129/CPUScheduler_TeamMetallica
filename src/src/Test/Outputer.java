@@ -56,7 +56,7 @@ public class Outputer {
     public void writeResultsToFile(String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (AlgoResult result : results) {
-                if (result.showOutput) {
+                if (result != null && result.getShowOutput()) {
                     writer.write("All context switches for " + result.getAlgorithmName() + ":\n\n");
                     for (int i = 0; i < result.getCPUactivity().size(); i++) {
                         int currentTime = result.getCPUactivity().get(i).getStartTime();

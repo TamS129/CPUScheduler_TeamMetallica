@@ -24,8 +24,8 @@ public class Executor {
     public Executor() {
         this.algorithms = new SchedulerAlgorithm[7];
         algorithms[0] = new SJF(false);
-        algorithms[1] = new FCFSNonPre(true);
-        algorithms[2] = new MFQ(false);
+        algorithms[1] = new FCFSNonPre(false);
+        algorithms[2] = new MFQ(true);
         algorithms[3] = new PrioritySch(false);
         algorithms[4] = new RR(false);
         algorithms[5] = new SRTF(false);
