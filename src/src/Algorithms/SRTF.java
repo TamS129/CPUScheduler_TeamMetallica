@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public class SRTF implements SchedulerAlgorithm{
 
     AlgoResult result;
+
+    public SRTF(boolean showOutput) {
+        this.result = new AlgoResult(getName(), showOutput);
+    }
     /**
      * Method to run a list of processes through a scheduling algorithm
      *

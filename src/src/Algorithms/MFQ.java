@@ -11,6 +11,10 @@ import java.util.Queue;
 public class MFQ implements SchedulerAlgorithm{
 
     AlgoResult result;
+    Queue<SProcess> queue1;
+    Queue<SProcess> queue2;
+    Queue<SProcess> queue3;
+    Queue<SProcess> ioQueue;
 
     public MFQ(boolean showOutput) {
         this.result = new AlgoResult(getName(), showOutput);
@@ -24,13 +28,13 @@ public class MFQ implements SchedulerAlgorithm{
     public AlgoResult runAlgo(ArrayList<SProcess> processes) {
         int currentTime = 0;
 
-        Queue<SProcess> queue1 = new LinkedList<>(processes);
-        Queue<SProcess> queue2 = new LinkedList<>();
-        Queue<SProcess> queue3 = new LinkedList<>();
-        Queue<SProcess> ioQueue = new LinkedList<>();
+        queue1 = new LinkedList<>(processes);
+        queue2 = new LinkedList<>();
+        queue3 = new LinkedList<>();
+        ioQueue = new LinkedList<>();
 
         while (!queue1.isEmpty() || !queue2.isEmpty() || !queue3.isEmpty() || !ioQueue.isEmpty()) {
-            handleIOQueue(ioQueue, queue1, currentTime);
+            handleIOQueue(currentTime);
 
             if (!queue1.isEmpty()) {
                 SProcess currentProcess = queue1.poll();
@@ -64,7 +68,7 @@ public class MFQ implements SchedulerAlgorithm{
                         }
                     }
                     currentTime = minReturnTime;
-                    handleIOQueue(ioQueue, queue1, currentTime);
+                    handleIOQueue(currentTime);
                 } else {
                     currentTime++;
                 }
@@ -79,7 +83,7 @@ public class MFQ implements SchedulerAlgorithm{
      * @param queue1 Queue of processes in the first level
      * @param currentTime Current time
      */
-    private void handleIOQueue(Queue<SProcess> ioQueue, Queue<SProcess> queue1, int currentTime) {
+    private void handleIOQueue(int currentTime) {
         Queue<SProcess> tempQueue = new LinkedList<>();
         while (!ioQueue.isEmpty()) {
             SProcess currentProcess = ioQueue.poll();
@@ -106,6 +110,22 @@ public class MFQ implements SchedulerAlgorithm{
         process.setStopTime(currentTime + executedTime);
         result.getCPUactivity().add(new AlgoResult.Pair(process.getStartTime(), process.getStopTime()));
         result.getExecutionOrder().add(process.getTitle());
+        Queue<SProcess> currentReadyQueue = new LinkedList<>();
+        for (SProcess currProcess : queue1) {
+            int[] burstTimes = Arrays.copyOf(currProcess.getBurstTimes(), currProcess.getBurstTimes().length);
+            SProcess newProcess = new SProcess(currProcess.getTitle(), burstTimes, currProcess.getPriorityLevel());
+            newProcess.setCurrCPUindex(currProcess.getCurrCPUindex());
+            currentReadyQueue.add(newProcess);
+        }
+        result.getReadyQueueActivity().add(currentReadyQueue);
+
+        Queue<SProcess> currentIOQueue = new LinkedList<>();
+        for (SProcess currProcess : ioQueue) {
+            SProcess newProcess = new SProcess(currProcess.getTitle(), new int[0], currProcess.getPriorityLevel());
+            newProcess.setReturnTime(currProcess.getReturnTime());
+            currentIOQueue.add(newProcess);
+        }
+        result.getIoQueueActivity().add(currentIOQueue);
         process.getBurstTimes()[process.getCurrCPUindex()] -= executedTime;
         return executedTime;
     }

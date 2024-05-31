@@ -53,6 +53,7 @@ public class AlgoResult {
 
     public ArrayList<Queue<SProcess>> getIoQueueActivity() {return  ioQueueActivity;}
 
+    public boolean getShowOutput() {return showOutput;}
     public static class Pair {
         private int startTime;
         private int stopTime;
