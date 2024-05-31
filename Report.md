@@ -20,7 +20,7 @@
   * [Response Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-response-times-)
 * [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times-)
 
-### [Discussion]()
+### [Discussion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-discussion-)
 ### [Conclusion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-conclusion-)
 
 
