@@ -19,7 +19,9 @@
   * [Turnaround Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-turnaround-times-)
   * [Response Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-response-times-)
 * [Algorithm Results Times](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-algorithm-result-times-)
-### [Conculsion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-conclusion-)
+
+### [Discussion]()
+### [Conclusion](https://github.com/TamS129/CPUScheduler_TeamMetallica/blob/main/Report.md#-conclusion-)
 
 
 ## <div align = "center" > Introduction </div>
@@ -94,22 +96,18 @@ The Multilevel Queue scheduling algorithm stands out as a powerful tool for mana
 | Avg Response Time   |     24.38      |    N/A     |               27.125                | 18.125  |  197.625 |         15.75          |        24.375         |         15.75         |
 ### <div align = "center"> CPU Utilization </div>
 v![CPU](src/src/Images/CPUUtilizationAverages.png);
-<!--- Insert Dicussion of CPU Utilization--->
 
 ### <div align = "center"> Waiting Times </div>
 ![WaitingTime](src/src/Images/WaitTmesAverages.png)
-<!--- Insert Dicussion of WT--->
+
 
 ### <div align = "center"> Turnaround Times </div>
 
 ![TurnaroundTimeChart](src/src/Images/TurnaroundTimesAverages.png);
-<!--- Insert Dicussion of TT--->
 
 ### <div align = "center"> Response Times </div>
 
 ![Response Time Chart](src/src/Images/ResponseTimesAverages.png)
-<!--- Insert Table--->
-<!--- Insert Dicussion of RT--->
 
 
 ## <div align = "center" > Algorithm Result Times </div>
@@ -151,9 +149,32 @@ v![CPU](src/src/Images/CPUUtilizationAverages.png);
 | P7                               |      269      |       363        |      35        |    |
 | P8                               |      265      |       316        |      7         |    |
 
+## <div align = "center" > Discussion </div>
+### <div align = "center" > CPU Utilization </div>
+&nbsp; &nbsp; &nbsp; &nbsp; One factor of the results that we worked on implementing within our project is finding the **CPU Utilization**. CPU Utilization is the process of finding the proportions of the total available processor cycles that are consumed by the processes. The typical percentages that our scheduling algorithms should vary from around 40% to 90% which depends on how much data is being loaded into the system.
+
+&nbsp; &nbsp; &nbsp; &nbsp; When taking a view at our results above we noticed that our CPU utilization is closely similar in size, except there is an anomaly with the results of our SRTF algorithm showing an incorrect value of having 154% (Where the correct value of our CPU Utilization should be 100% and lower.) This incorrect value could possibly be created due to a coding error within the SRTF algorithm. Despite that incorrect value, in terms of the best CPU utilization would go to our Multilevel Queue at 100% CPU Utilization. Our lowest preforming algorithm would be our Priority Queue with a CPU Utilization percentage of only 79.41%. Outside of those two results, our typical CPU scheduling algorithm tends to stay in the range of 80 – 90%. Which in terms of what is expected of most scheduling algorithms is relatively close to what is expected for scheduling algorithms.
+
+### <div align = "center" > Response Times </div>
+&nbsp; &nbsp; &nbsp; &nbsp; When looking at the next set of data within our report you can see a measured time value of our response times. **Response times** is the amount of time it takes for the CPU to respond to a request made by a process. In our cases we’re measuring the amount of time our processes P1 to P8 respond to our algorithms. Response times can vary widely by how large the program is, how the systems interact with processes, and more.
+
+&nbsp; &nbsp; &nbsp; &nbsp; In the case of our algorithms, we mostly want to focus on how fast the algorithms respond to a request made by our program. The algorithm that had the fastest response time in our experiment was a tie between Round Robin and MLFQ. On the other hand, the lowest responding times to our algorithms was priority scheduling. However, this vast difference in time may be due to a possible coding error or due to the considerable length of our processes and the compile time for each process. Considering the length of our processes within our program it can be stated that overall (excluding Priority Scheduling) the response times were generally at an average rate between 15 to 25 units of time.
+
+### <div align = "center" > Wait Times </div>
+&nbsp; &nbsp; &nbsp; &nbsp; Another unit of time that was measured within our project is a waiting time measurement. **Waiting times** are a measurement of the process’s duration in the ready queue before executing. With our project each of our processes are being calculated based on how long they were held within our ready queues and I/O wait queues.
+
+&nbsp; &nbsp; &nbsp; &nbsp; When comparing the waiting times across different scheduling algorithms, our shortest wait time was the SRTF algorithm performs the best with an average waiting time of 285.125. However, due to inconsistencies with SRTF’s data it can be assumed as incomplete data and disregarded. Due to this inconsistency, our fastest wait times within our project would be given to MLQ with a fast-waiting time of 24.375 units of time. With our lowest unit of time going to MLFQ at 446.125 and RR with a wait time of 418.0. With our other algorithms falling into an average time of around 285 to 380 units of time. Considering our processes were long in terms of CPU bursts and IO bursts it can be assumed that the reason our waiting times were so high for RR and MLFQ is due to the nature of the programs having set CPU bursts time with time slicing (RR) and the usage of multiple queues (MLFQ) that lead to these longer wait times.
+
+### <div align = "center" > Turnaround Times </div>
+&nbsp; &nbsp; &nbsp; &nbsp; Our last time measurement was to measure the turnaround times for our algorithms. Turnaround times is a unit of time measurement that calculates the time elapsed between the arrival time of a process and its completion. Meaning within our project we are measuring the time in which the process arrives (in our case all processes have an arrival time of 0) to when the process has completely run its course.
+
+&nbsp; &nbsp; &nbsp; &nbsp; When looking at our algorithms specifically, we find that our algorithm with the fastest turnaround time being MLQ with 32.5 units of time. Our slowest algorithm in terms of turnaround times is FCFS at 534.13 units of time. Considering that FCFS algorithm typically tends to run slower due to its simple structure, this makes sense theoretically this algorithm would be slower. On average though the typical run times for the rest of the algorithms were around 355 to 450.
+
+
 
 ## <div align = "center" > Conclusion </div>  
- 
+&nbsp; &nbsp; &nbsp; &nbsp; In conclusion, the Multilevel Queue (MLQ) scheduling algorithm emerges as the best choice for our project. This decision is based on its superior performance across several critical metrics. MLQ achieves the lowest average waiting time of 24.375, ensuring minimal delays for processes. It also boasts the lowest average turnaround time of 32.5, which reflects its efficiency in completing tasks promptly. Furthermore, MLQ's CPU utilization stands at an impressive 100%, indicating optimal use of system resources. These factors collectively highlight MLQ's effectiveness in managing process scheduling, making it the most suitable algorithm for our needs. Therefore, using our results from our CPU scheduler experiment we can say that MLQ’s algorithm would be the most efficient algorithm to implement.
+
 ## Attributes
 Tamara - Generator, SProcess, RR, FCFS-preemptive report, AlgoTest  
 Jackson - Outputer, FCFSNonPre, MFQ  
