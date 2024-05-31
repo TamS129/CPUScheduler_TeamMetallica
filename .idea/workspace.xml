@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be30b5e7-5b56-4f27-be9a-003e055046ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/Algorithms/SRTF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/Algorithms/SRTF.java" afterDir="false" />
-    </list>
+    <list default="true" id="be30b5e7-5b56-4f27-be9a-003e055046ad" name="Changes" comment="Added Report Sections -Ken" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,8 +109,16 @@
       <workItem from="1717044655000" duration="882000" />
       <workItem from="1717046570384" duration="10000" />
       <workItem from="1717046589768" duration="3000" />
-      <workItem from="1717120148369" duration="2566000" />
+      <workItem from="1717120148369" duration="2901000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Report Sections -Ken">
+      <created>1717132763941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717132763941</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,5 +134,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Report Sections -Ken" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Report Sections -Ken" />
   </component>
 </project>
