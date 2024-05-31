@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be30b5e7-5b56-4f27-be9a-003e055046ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Algorithms/FCFSNonPre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Algorithms/FCFSNonPre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Algorithms/RR.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Algorithms/RR.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Test/Executor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Test/Executor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/src/Test/Outputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/Test/Outputer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/Algorithms/RR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/Algorithms/RR.java" afterDir="false" />
-    </list>
+    <list default="true" id="be30b5e7-5b56-4f27-be9a-003e055046ad" name="Changes" comment="Added Report Sections -Ken" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,8 +36,13 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Jackson Kettel/Documents/Coding/Operating Systems/CPUScheduler_TeamMetallica&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
@@ -106,7 +104,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715207410153</updated>
+      <workItem from="1716444823033" duration="604000" />
+      <workItem from="1717042850024" duration="1788000" />
+      <workItem from="1717044655000" duration="882000" />
+      <workItem from="1717046570384" duration="10000" />
+      <workItem from="1717046589768" duration="3000" />
+      <workItem from="1717120148369" duration="2901000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Report Sections -Ken">
+      <created>1717132763941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717132763941</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Report Sections -Ken" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Report Sections -Ken" />
   </component>
 </project>
